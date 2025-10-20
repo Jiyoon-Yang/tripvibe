@@ -41,6 +41,48 @@
   --red-dark-active: #6f3030;
   --red-darker: #562525;
 
+  /* Typography - Font Family */
+  --font-family-ko-pretendard: Pretendard, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  --font-family-ko-pretendard-variable: Pretendard Variable, -apple-system,
+    BlinkMacSystemFont, sans-serif;
+  --font-family-en-pretendard: Pretendard, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  --font-family-en-pretendard-variable: Pretendard Variable, -apple-system,
+    BlinkMacSystemFont, sans-serif;
+
+  /* Typography - Font Weight */
+  --font-weight-bold: 700;
+  --font-weight-semi-bold: 600;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+  --font-weight-light: 300;
+
+  /* Typography - Font Size */
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 13px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 28px;
+
+  /* Typography - Line Height */
+  --line-height-xs: 12px;
+  --line-height-sm: 20px;
+  --line-height-base: 24px;
+  --line-height-md: 28px;
+  --line-height-lg: 32px;
+  --line-height-xl: 36px;
+
+  /* Typography - Paragraph Spacing */
+  --paragraph-spacing-none: 0;
+
+  /* Typography - Paragraph Indent */
+  --paragraph-indent-none: 0;
+
   /* Legacy variables */
   --background: #ffffff;
   --foreground: #171717;
@@ -86,6 +128,48 @@
     --red-dark-active: #6f3030;
     --red-darker: #562525;
 
+    /* Typography - Font Family (same in dark mode) */
+    --font-family-ko-pretendard: Pretendard, -apple-system, BlinkMacSystemFont,
+      sans-serif;
+    --font-family-ko-pretendard-variable: Pretendard Variable, -apple-system,
+      BlinkMacSystemFont, sans-serif;
+    --font-family-en-pretendard: Pretendard, -apple-system, BlinkMacSystemFont,
+      sans-serif;
+    --font-family-en-pretendard-variable: Pretendard Variable, -apple-system,
+      BlinkMacSystemFont, sans-serif;
+
+    /* Typography - Font Weight (same in dark mode) */
+    --font-weight-bold: 700;
+    --font-weight-semi-bold: 600;
+    --font-weight-medium: 500;
+    --font-weight-regular: 400;
+    --font-weight-light: 300;
+
+    /* Typography - Font Size (same in dark mode) */
+    --font-size-xs: 11px;
+    --font-size-sm: 12px;
+    --font-size-base: 13px;
+    --font-size-md: 14px;
+    --font-size-lg: 16px;
+    --font-size-xl: 18px;
+    --font-size-2xl: 20px;
+    --font-size-3xl: 24px;
+    --font-size-4xl: 28px;
+
+    /* Typography - Line Height (same in dark mode) */
+    --line-height-xs: 12px;
+    --line-height-sm: 20px;
+    --line-height-base: 24px;
+    --line-height-md: 28px;
+    --line-height-lg: 32px;
+    --line-height-xl: 36px;
+
+    /* Typography - Paragraph Spacing (same in dark mode) */
+    --paragraph-spacing-none: 0;
+
+    /* Typography - Paragraph Indent (same in dark mode) */
+    --paragraph-indent-none: 0;
+
     /* Legacy variables */
     --background: #0a0a0a;
     --foreground: #ededed;
@@ -95,7 +179,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family-ko-pretendard-variable);
 }
 
 @layer utilities {
