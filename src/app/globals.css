@@ -3,12 +3,90 @@
 @tailwind utilities;
 
 :root {
+  /* Gray Scale */
+  --gray-w: #ffffff;
+  --gray-50: #f2f2f2;
+  --gray-100: #e4e4e4;
+  --gray-200: #d4d3d3;
+  --gray-300: #c7c7c7;
+  --gray-400: #ababab;
+  --gray-500: #919191;
+  --gray-600: #777777;
+  --gray-700: #5f5f5f;
+  --gray-800: #333333;
+  --gray-900: #1c1c1c;
+  --gray-b: #000000;
+
+  /* Blue Scale */
+  --blue-light: #eaf1fc;
+  --blue-light-hover: #dfeafb;
+  --blue-light-active: #bdd4f7;
+  --blue-normal: #2974e5;
+  --blue-normal-hover: #2568ce;
+  --blue-normal-active: #215db7;
+  --blue-dark: #1f57ac;
+  --blue-dark-hover: #194689;
+  --blue-dark-active: #123467;
+  --blue-darker: #0e2950;
+
+  /* Red Scale */
+  --red-light: #fef0f0;
+  --red-light-hover: #fee9e9;
+  --red-light-active: #fcd1d1;
+  --red-normal: #f66a6a;
+  --red-normal-hover: #dd5f5f;
+  --red-normal-active: #c55555;
+  --red-dark: #b95050;
+  --red-dark-hover: #944040;
+  --red-dark-active: #6f3030;
+  --red-darker: #562525;
+
+  /* Legacy variables */
   --background: #ffffff;
   --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    /* Gray Scale (Dark Mode - inverted) */
+    --gray-w: #000000;
+    --gray-50: #1c1c1c;
+    --gray-100: #333333;
+    --gray-200: #5f5f5f;
+    --gray-300: #777777;
+    --gray-400: #919191;
+    --gray-500: #ababab;
+    --gray-600: #c7c7c7;
+    --gray-700: #d4d3d3;
+    --gray-800: #e4e4e4;
+    --gray-900: #f2f2f2;
+    --gray-b: #ffffff;
+
+    /* Blue Scale remains same in dark mode */
+    --blue-light: #eaf1fc;
+    --blue-light-hover: #dfeafb;
+    --blue-light-active: #bdd4f7;
+    --blue-normal: #2974e5;
+    --blue-normal-hover: #2568ce;
+    --blue-normal-active: #215db7;
+    --blue-dark: #1f57ac;
+    --blue-dark-hover: #194689;
+    --blue-dark-active: #123467;
+    --blue-darker: #0e2950;
+
+    /* Red Scale remains same in dark mode */
+    --red-light: #fef0f0;
+    --red-light-hover: #fee9e9;
+    --red-light-active: #fcd1d1;
+    --red-normal: #f66a6a;
+    --red-normal-hover: #dd5f5f;
+    --red-normal-active: #c55555;
+    --red-dark: #b95050;
+    --red-dark-hover: #944040;
+    --red-dark-active: #6f3030;
+    --red-darker: #562525;
+
+    /* Legacy variables */
     --background: #0a0a0a;
     --foreground: #ededed;
   }
