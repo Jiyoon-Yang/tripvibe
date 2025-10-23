@@ -1,173 +1,209 @@
-/* 기본 탭 스타일 */
+/* ============================================
+   기본 탭 스타일
+   ============================================ */
 .tabs {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
   font-family: var(--font-family-ko-pretendard-variable);
-  text-decoration: none;
-  outline: none;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
   user-select: none;
+  white-space: nowrap;
 }
 
 .tabs:focus {
-  outline: 2px solid var(--blue-normal);
+  outline: none;
+}
+
+.tabs:focus-visible {
+  outline: 2px solid #007bff;
   outline-offset: 2px;
 }
 
-.tabs:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
+.text {
+  display: block;
+  width: 100%;
 }
 
-/* Position variants */
+/* ============================================
+   크기 변형 (Size Variants)
+   ============================================ */
+
+/* Small Size */
+.size-s {
+  padding: 6px 12px;
+  font-size: var(--font-size-md);
+  min-height: 32px;
+}
+
+/* Medium Size */
+.size-m {
+  padding: 8px 16px;
+  font-size: var(--font-size-lg);
+  min-height: 40px;
+}
+
+/* ============================================
+   위치/스타일 변형 (Position Variants)
+   ============================================ */
+
+/* Primary Black */
 .position-primary-black {
-  background-color: transparent;
-  color: #333333;
-  width: 72px;
+  background-color: var(--gray-b);
+  color: var(--gray-w);
+}
+
+.position-primary-black:hover:not(.disabled) {
+  background-color: var(--gray-800);
 }
 
 .position-primary-black.selected-on {
-  background-color: transparent;
-  color: #000000;
-  font-weight: 700;
-  border-bottom: 2px solid #000000;
+  background-color: var(--gray-b);
+  color: var(--gray-w);
 }
 
+/* Primary White */
 .position-primary-white {
-  background-color: transparent;
-  color: #f2f2f2;
-  width: 72px;
+  background-color: var(--gray-w);
+  color: var(--gray-b);
+  border: 1px solid var(--gray-100);
+}
+
+.position-primary-white:hover:not(.disabled) {
+  background-color: var(--gray-50);
+  border-color: var(--gray-200);
 }
 
 .position-primary-white.selected-on {
-  background-color: transparent;
-  color: #ffffff;
-  font-weight: 700;
-  border-bottom: 2px solid #ffffff;
+  background-color: var(--gray-w);
+  color: var(--gray-b);
+  border-color: var(--gray-b);
 }
 
+/* Secondary */
 .position-secondary {
-  background-color: #ffffff;
-  color: #525252;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  width: 88px;
+  background-color: var(--gray-w);
+  color: var(--gray-600);
+  border: 1px solid var(--gray-100);
+}
+
+.position-secondary:hover:not(.disabled) {
+  background-color: var(--gray-50);
+  border-color: var(--gray-200);
 }
 
 .position-secondary.selected-on {
-  background-color: #000000;
-  color: #ffffff;
-  font-weight: 600;
+  background-color: var(--gray-50);
+  color: var(--gray-b);
+  border-color: var(--gray-b);
 }
 
+/* Side */
 .position-side {
   background-color: transparent;
-  color: #000000;
-  border-radius: 8px;
+  color: var(--gray-600);
+  border: none;
+  border-radius: 0;
   justify-content: flex-start;
-  padding-left: 12px;
-  padding-right: 12px;
-  width: 232px;
-  gap: 8px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+
+.position-side:hover:not(.disabled) {
+  background-color: var(--gray-50);
+  color: var(--gray-b);
 }
 
 .position-side.selected-on {
-  background-color: #f2f2f2;
-  color: #000000;
-  font-weight: 600;
+  background-color: var(--gray-50);
+  color: var(--gray-b);
+  font-weight: var(--font-weight-semi-bold);
 }
 
-.iconContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* ============================================
+   선택 상태 (Selected States)
+   ============================================ */
 
-.icon {
-  opacity: 1;
-}
-
-.text {
-  flex: 1;
-  text-align: left;
-}
-
-/* Size variants */
-.size-s {
-  height: 28px;
-  padding: 4px 8px;
-  font-size: var(--font-size-md);
-  line-height: var(--line-height-sm);
-  font-weight: var(--font-weight-medium);
-}
-
-.size-m {
-  height: 40px;
-  padding: 8px 16px;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: var(--font-weight-medium);
-}
-
-/* Selected states */
 .selected-on {
   font-weight: var(--font-weight-semi-bold);
 }
 
-.position-primary-black.selected-on {
-  font-weight: var(--font-weight-bold);
+.selected-off {
+  font-weight: var(--font-weight-medium);
 }
 
-.position-primary-white.selected-on {
-  font-weight: var(--font-weight-bold);
-}
+/* ============================================
+   비활성화 상태 (Disabled State)
+   ============================================ */
 
-/* Disabled state */
 .disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  pointer-events: none;
 }
 
-/* Hover effects */
-.tabs:not(.disabled):hover {
-  opacity: 0.8;
+.disabled .text {
+  color: inherit;
 }
 
-.position-secondary:not(.disabled):hover {
-  background-color: var(--gray-50);
-}
+/* ============================================
+   반응형 디자인
+   ============================================ */
 
-.position-secondary.selected-on:not(.disabled):hover {
-  background-color: var(--gray-800);
-}
-
-.position-side:not(.disabled):hover {
-  background-color: var(--gray-50);
-}
-
-.position-side.selected-on:not(.disabled):hover {
-  background-color: var(--gray-100);
-}
-
-/* Focus styles for accessibility */
-.tabs:focus-visible {
-  outline: 2px solid var(--blue-normal);
-  outline-offset: 2px;
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
-  .size-m {
-    height: 36px;
-    padding: 6px 12px;
-    font-size: var(--font-size-md);
+  .size-s {
+    padding: 4px 8px;
+    font-size: var(--font-size-sm);
+    min-height: 28px;
   }
 
-  .size-s {
-    height: 24px;
-    padding: 2px 6px;
-    font-size: var(--font-size-sm);
+  .size-m {
+    padding: 6px 12px;
+    font-size: var(--font-size-md);
+    min-height: 36px;
+  }
+}
+
+/* ============================================
+   다크 모드 지원 (선택사항)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  .position-secondary {
+    background-color: var(--gray-900);
+    color: var(--gray-800);
+    border-color: var(--gray-100);
+  }
+
+  .position-secondary:hover:not(.disabled) {
+    background-color: var(--gray-800);
+    border-color: var(--gray-200);
+  }
+
+  .position-secondary.selected-on {
+    background-color: var(--gray-800);
+    color: var(--gray-w);
+    border-color: var(--gray-w);
+  }
+
+  .position-side {
+    color: var(--gray-800);
+  }
+
+  .position-side:hover:not(.disabled) {
+    background-color: var(--gray-800);
+    color: var(--gray-w);
+  }
+
+  .position-side.selected-on {
+    background-color: var(--gray-800);
+    color: var(--gray-w);
   }
 }
