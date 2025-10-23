@@ -22,8 +22,10 @@
   align-items: center;
   justify-content: space-between;
   padding: 8px 10px;
-  height: 100%;
+  width: 120px;
+  height: 40px;
   gap: 0;
+  box-sizing: border-box;
 }
 
 /* Text */
@@ -55,11 +57,10 @@
   top: calc(100% + 4px);
   left: 0;
   width: 120px;
-  max-height: 240px;
+  height: 240px;
   background: #ffffff;
   border: 1px solid #000000;
   border-radius: 8px;
-  overflow-y: auto;
   z-index: 1000;
 }
 
@@ -109,6 +110,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  filter: brightness(0) saturate(100%) invert(38%) sepia(99%) saturate(1577%)
+    hue-rotate(201deg) brightness(95%) contrast(88%);
 }
 
 /* ===============================================

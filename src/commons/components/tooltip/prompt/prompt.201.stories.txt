@@ -1,0 +1,57 @@
+아래의 조건을 모두 적용하여, 아래의 요구사항을 모두 구현할 것.
+구현 결과를 체크리스트로 반환할 것.
+
+==============================================
+
+조건-커서룰) 아래의 커서룰을 적용하여 작업하고, 이 작업이 끝나면 해당 rules 적용 결과를 체크리스트로 반환할 것.
+            - @01-common.mdc
+            - @02-wireframe.mdc
+            - @03-ui.mdc
+
+==============================================
+
+조건-피그마) 활용할MCP: CursorTalkToFigmaMCP(채널명: e3jl8vf2)
+조건-피그마) 참고할 공통컴포넌트 노드ID: 293:53161
+
+조건-파일경로) 구현될 TSX 파일경로: src/commons/components/tooltip/index.stories.tsx
+
+==============================================
+
+기존요구사항-참고만) MCP를 연동하여 피그마의 디자인을 그대로 소스코드로 구현할 것.
+
+기존요구사항-참고만) 다음 조건을 모두 만족하는 완전한 variant 시스템을 구현할 것.
+            - size: 's' | 'm' 
+
+기존요구사항-참고만) Storybook 스토리를 다음과 같이 구성할 것:
+            - 기본 스토리 (Small, Medium)
+            - 텍스트 길이별 스토리 (ShortText, MediumText, LongText)
+            - 전체 Variant 미리보기 (AllVariants)
+            - 실전 사용 예제 (WithButton)
+            - 다양한 위치 예제 (Positions)
+            - Size 비교 (SizeComparison)
+            - 실용적인 메시지 예제 (PracticalMessages)
+
+==============================================
+
+구현체크리스트:
+□ Tooltip 컴포넌트 기본 구조 구현
+□ size prop ('s' | 'm') 지원
+□ children prop 지원
+□ className prop 지원
+□ TypeScript 타입 정의
+□ CSS 모듈 스타일링
+□ Figma 디자인 반영 (색상, 폰트, 크기, 패딩, 보더)
+□ 반응형 디자인 지원
+□ 다크 모드 지원
+□ Storybook 스토리 구성
+□ 기본 스토리 (Small, Medium)
+□ 텍스트 길이별 스토리
+□ 전체 Variant 미리보기
+□ 실전 사용 예제
+□ 다양한 위치 예제
+□ Size 비교
+□ 실용적인 메시지 예제
+□ 접근성 고려사항
+□ 호버 효과
+□ 박스 섀도우
+□ z-index 설정
