@@ -1,146 +1,140 @@
-/* ============================================
-   기본 탭 스타일
-   ============================================ */
-.tabs {
+/* 기본 탭 스타일 */
+.tab {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-family: var(--font-family-ko-pretendard-variable);
-  font-weight: var(--font-weight-medium);
-  line-height: 1.5;
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+    "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", sans-serif;
+  font-weight: 500;
   text-align: center;
-  transition: all 0.2s ease-in-out;
-  user-select: none;
+  outline: none;
+  position: relative;
   white-space: nowrap;
 }
 
-.tabs:focus {
-  outline: none;
-}
-
-.tabs:focus-visible {
+.tab:focus-visible {
   outline: 2px solid #007bff;
   outline-offset: 2px;
 }
 
-.text {
-  display: block;
-  width: 100%;
-}
-
 /* ============================================
-   크기 변형 (Size Variants)
+   SIZE VARIANTS
    ============================================ */
 
-/* Small Size */
+/* Small size */
 .size-s {
-  padding: 6px 12px;
-  font-size: var(--font-size-md);
-  min-height: 32px;
+  height: 28px;
+  padding: 4px 8px;
+  font-size: 14px;
+  line-height: 20px;
 }
 
-/* Medium Size */
+/* Medium size */
 .size-m {
+  height: 40px;
   padding: 8px 16px;
-  font-size: var(--font-size-lg);
-  min-height: 40px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 /* ============================================
-   위치/스타일 변형 (Position Variants)
+   POSITION VARIANTS
    ============================================ */
 
 /* Primary Black */
 .position-primary-black {
-  background-color: var(--gray-b);
-  color: var(--gray-w);
-}
-
-.position-primary-black:hover:not(.disabled) {
-  background-color: var(--gray-800);
+  background-color: transparent;
+  color: #333333;
+  border: 1px solid transparent;
 }
 
 .position-primary-black.selected-on {
-  background-color: var(--gray-b);
-  color: var(--gray-w);
+  background-color: transparent;
+  color: #000000;
+  font-weight: 700;
+  border: 1px solid #000000;
+}
+
+.position-primary-black.selected-off {
+  background-color: transparent;
+  color: #333333;
+  font-weight: 500;
+  border: 1px solid transparent;
 }
 
 /* Primary White */
 .position-primary-white {
-  background-color: var(--gray-w);
-  color: var(--gray-b);
-  border: 1px solid var(--gray-100);
-}
-
-.position-primary-white:hover:not(.disabled) {
-  background-color: var(--gray-50);
-  border-color: var(--gray-200);
+  background-color: transparent;
+  color: #f2f2f2;
+  border: 1px solid transparent;
 }
 
 .position-primary-white.selected-on {
-  background-color: var(--gray-w);
-  color: var(--gray-b);
-  border-color: var(--gray-b);
+  background-color: transparent;
+  color: #ffffff;
+  font-weight: 700;
+  border: 1px solid #ffffff;
+}
+
+.position-primary-white.selected-off {
+  background-color: transparent;
+  color: #f2f2f2;
+  font-weight: 500;
+  border: 1px solid transparent;
 }
 
 /* Secondary */
 .position-secondary {
-  background-color: var(--gray-w);
-  color: var(--gray-600);
-  border: 1px solid var(--gray-100);
-}
-
-.position-secondary:hover:not(.disabled) {
-  background-color: var(--gray-50);
-  border-color: var(--gray-200);
+  background-color: #ffffff;
+  color: #525252;
+  border: 1px solid transparent;
 }
 
 .position-secondary.selected-on {
-  background-color: var(--gray-50);
-  color: var(--gray-b);
-  border-color: var(--gray-b);
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.position-secondary.selected-off {
+  background-color: #ffffff;
+  color: #525252;
+  font-weight: 500;
+  border: 1px solid transparent;
 }
 
 /* Side */
 .position-side {
   background-color: transparent;
-  color: var(--gray-600);
-  border: none;
-  border-radius: 0;
+  color: #000000;
+  border: 1px solid transparent;
   justify-content: flex-start;
-  padding-left: 0;
-  padding-right: 0;
-  width: 100%;
-}
-
-.position-side:hover:not(.disabled) {
-  background-color: var(--gray-50);
-  color: var(--gray-b);
+  text-align: left;
+  width: 232px;
 }
 
 .position-side.selected-on {
-  background-color: var(--gray-50);
-  color: var(--gray-b);
-  font-weight: var(--font-weight-semi-bold);
+  background-color: #f2f2f2;
+  color: #000000;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.position-side.selected-off {
+  background-color: transparent;
+  color: #000000;
+  font-weight: 400;
+  border: 1px solid transparent;
 }
 
 /* ============================================
-   선택 상태 (Selected States)
-   ============================================ */
-
-.selected-on {
-  font-weight: var(--font-weight-semi-bold);
-}
-
-.selected-off {
-  font-weight: var(--font-weight-medium);
-}
-
-/* ============================================
-   비활성화 상태 (Disabled State)
+   DISABLED STATE
    ============================================ */
 
 .disabled {
@@ -149,61 +143,56 @@
   pointer-events: none;
 }
 
-.disabled .text {
-  color: inherit;
+/* ============================================
+   HOVER STATES
+   ============================================ */
+
+.tab:not(.disabled):hover {
+  opacity: 0.8;
+}
+
+/* Primary Black hover */
+.position-primary-black:not(.disabled):not(.selected-on):hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Primary White hover */
+.position-primary-white:not(.disabled):not(.selected-on):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Secondary hover */
+.position-secondary:not(.disabled):not(.selected-on):hover {
+  background-color: #f5f5f5;
+}
+
+/* Side hover */
+.position-side:not(.disabled):not(.selected-on):hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* ============================================
-   반응형 디자인
+   ICON STYLES
+   ============================================ */
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.icon {
+  display: block;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
    ============================================ */
 
 @media (max-width: 768px) {
-  .size-s {
-    padding: 4px 8px;
-    font-size: var(--font-size-sm);
-    min-height: 28px;
-  }
-
-  .size-m {
-    padding: 6px 12px;
-    font-size: var(--font-size-md);
-    min-height: 36px;
-  }
-}
-
-/* ============================================
-   다크 모드 지원 (선택사항)
-   ============================================ */
-
-@media (prefers-color-scheme: dark) {
-  .position-secondary {
-    background-color: var(--gray-900);
-    color: var(--gray-800);
-    border-color: var(--gray-100);
-  }
-
-  .position-secondary:hover:not(.disabled) {
-    background-color: var(--gray-800);
-    border-color: var(--gray-200);
-  }
-
-  .position-secondary.selected-on {
-    background-color: var(--gray-800);
-    color: var(--gray-w);
-    border-color: var(--gray-w);
-  }
-
   .position-side {
-    color: var(--gray-800);
-  }
-
-  .position-side:hover:not(.disabled) {
-    background-color: var(--gray-800);
-    color: var(--gray-w);
-  }
-
-  .position-side.selected-on {
-    background-color: var(--gray-800);
-    color: var(--gray-w);
+    width: 100%;
+    max-width: 232px;
   }
 }

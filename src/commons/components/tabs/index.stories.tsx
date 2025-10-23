@@ -298,6 +298,7 @@ export const AllVariants: Story = {
   args: {
     position: "secondary",
     size: "m",
+    selected: "off",
     children: "탭",
   },
   render: () => (
@@ -350,6 +351,7 @@ export const TabGroup: Story = {
   args: {
     position: "secondary",
     size: "m",
+    selected: "off",
     children: "탭",
   },
   render: () => (
@@ -371,6 +373,7 @@ export const SideTabGroup: Story = {
   args: {
     position: "side",
     size: "m",
+    selected: "off",
     children: "탭",
   },
   render: () => (
