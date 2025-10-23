@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import styles from "./styles.module.css";
 
 export interface IndicatorProps {
@@ -36,12 +37,19 @@ export const Indicator: React.FC<IndicatorProps> = ({
   return (
     <div className={indicatorClassName}>
       {Array.from({ length: total }, (_, index) => (
-        <span
+        <div
           key={index}
           className={`${styles.dot} ${
             index === current ? styles.active : styles.inactive
-          }`}
-        />
+          }`}>
+          <Image
+            src={`/icons/indicator-${size}.svg`}
+            alt={`indicator ${index + 1}`}
+            width={size === "s" ? 4 : 8}
+            height={size === "s" ? 4 : 8}
+            className={styles.icon}
+          />
+        </div>
       ))}
     </div>
   );
