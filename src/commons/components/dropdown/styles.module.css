@@ -1,0 +1,198 @@
+/* Dropdown Container */
+.dropdownContainer {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Button */
+.dropdown {
+  width: 120px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+/* Frame inside dropdown */
+.frame {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  height: 100%;
+  gap: 0;
+}
+
+/* Text */
+.text {
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Icon */
+.icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dropdown List */
+.dropdownList {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 120px;
+  max-height: 240px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+/* Dropdown List Element */
+.dropdownListElement {
+  width: 120px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.dropdownListElement:hover {
+  background-color: rgba(41, 116, 229, 0.03);
+}
+
+.dropdownListElement.elementSelected {
+  background-color: rgba(41, 116, 229, 0.05);
+}
+
+/* Element Text */
+.elementText {
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: #5f5f5f;
+  font-weight: 400;
+  flex: 1;
+}
+
+.dropdownListElement.elementSelected .elementText {
+  color: #2974e5;
+  font-weight: 700;
+}
+
+/* Check Icon */
+.checkIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===============================================
+   VARIANT: filled
+   =============================================== */
+
+/* filled=off (값이 선택되지 않음) */
+.dropdown.filled-off {
+  border: 1px solid #c7c7c7;
+}
+
+.dropdown.filled-off .text {
+  color: #919191;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* filled=on (값이 선택됨) */
+.dropdown.filled-on {
+  border: 1px solid #c7c7c7;
+}
+
+.dropdown.filled-on .text {
+  color: #000000;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* ===============================================
+   VARIANT: selected
+   =============================================== */
+
+/* selected=on (드롭다운 열림) */
+.dropdown.selected-on {
+  border: 1px solid #000000;
+}
+
+/* selected=off (드롭다운 닫힘) */
+.dropdown.selected-off {
+  /* border는 filled 상태에 따라 결정됨 */
+}
+
+/* filled=off & selected=on */
+.dropdown.filled-off.selected-on {
+  border: 1px solid #000000;
+}
+
+.dropdown.filled-off.selected-on .text {
+  color: #919191;
+  font-weight: 400;
+}
+
+/* filled=on & selected=on */
+.dropdown.filled-on.selected-on {
+  border: 1px solid #000000;
+}
+
+.dropdown.filled-on.selected-on .text {
+  color: #000000;
+  font-weight: 500;
+}
+
+/* ===============================================
+   DISABLED STATE
+   =============================================== */
+
+.dropdown.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.dropdown.disabled:hover {
+  border-color: inherit;
+}
+
+/* ===============================================
+   RESPONSIVE & ACCESSIBILITY
+   =============================================== */
+
+.dropdown:focus {
+  outline: none;
+}
+
+.dropdown:focus-visible {
+  outline: 2px solid #2974e5;
+  outline-offset: 2px;
+}
