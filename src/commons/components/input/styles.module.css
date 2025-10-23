@@ -1,0 +1,181 @@
+/* Input Wrapper */
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* 레이블 영역 */
+.labelArea {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+  height: 24px;
+}
+
+.label {
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+}
+
+.required {
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #f66a6a;
+}
+
+/* 입력 영역 컨테이너 */
+.inputContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inputField {
+  flex: 1;
+}
+
+/* 기본 Input 스타일 */
+.input {
+  width: 100%;
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-weight: 400;
+  border-radius: 8px;
+  border: 1px solid;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.input::placeholder {
+  color: #ababab;
+}
+
+/* Size - M */
+.input.size-m {
+  height: 48px;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 12px 16px;
+}
+
+/* Size - S */
+.input.size-s {
+  height: 40px;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 10px 16px;
+}
+
+/* Size별 Label 스타일 */
+.inputWrapper:has(.input.size-s) .label {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.inputWrapper:has(.input.size-s) .required {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Status - Enabled */
+.input.status-enabled {
+  background-color: #ffffff;
+  border-color: #d4d3d3;
+  color: #ababab;
+}
+
+.input.status-enabled.filled-on {
+  color: #000000;
+}
+
+/* Status - Filled */
+.input.status-filled {
+  background-color: #ffffff;
+  border-color: #d4d3d3;
+  color: #000000;
+}
+
+/* Status - Selected & Typing */
+.input.status-selected\&typing {
+  background-color: #ffffff;
+  border-color: #777777;
+}
+
+.input.status-selected\&typing.filled-off {
+  color: #ababab;
+}
+
+.input.status-selected\&typing.filled-on {
+  color: #000000;
+}
+
+/* Status - Error */
+.input.status-error {
+  background-color: #ffffff;
+  border-color: #f66a6a;
+}
+
+.input.status-error.filled-off {
+  color: #ababab;
+}
+
+.input.status-error.filled-on {
+  color: #000000;
+}
+
+/* Status - Disabled */
+.input.status-disabled {
+  background-color: #e4e4e4;
+  border: none;
+  color: #919191;
+  cursor: not-allowed;
+}
+
+.input.status-disabled::placeholder {
+  color: #919191;
+}
+
+/* Status - Lead Only */
+.input.status-lead-only {
+  background-color: #f2f2f2;
+  border: none;
+  color: #000000;
+  cursor: not-allowed;
+}
+
+.input.status-lead-only::placeholder {
+  color: #000000;
+}
+
+/* Right Button */
+.rightButton {
+  flex-shrink: 0;
+}
+
+/* Error Message */
+.errorMessage {
+  margin-top: 8px;
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #f66a6a;
+}
+
+/* Size별 Error Message 스타일 */
+.inputWrapper:has(.input.size-s) .errorMessage {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
+}
