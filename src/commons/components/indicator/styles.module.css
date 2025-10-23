@@ -1,0 +1,56 @@
+/* Indicator Container */
+.indicator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Size Variants */
+.indicator.size-m {
+  height: 8px;
+  gap: 12px;
+}
+
+.indicator.size-s {
+  height: 4px;
+  gap: 4px;
+}
+
+/* Dot Base Styles */
+.dot {
+  display: inline-block;
+  background-color: #ffffff;
+  flex-shrink: 0;
+}
+
+/* Size M - Dot Styles */
+.size-m .dot {
+  width: 8px;
+  height: 8px;
+}
+
+.size-m .dot.active {
+  border-radius: 1000px;
+  opacity: 1;
+}
+
+.size-m .dot.inactive {
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+/* Size S - Dot Styles */
+.size-s .dot {
+  width: 4px;
+  height: 4px;
+}
+
+.size-s .dot.active {
+  border-radius: 1000px;
+  opacity: 1;
+}
+
+.size-s .dot.inactive {
+  border-radius: 50%;
+  opacity: 0.8;
+}
