@@ -1,0 +1,207 @@
+/* Base Button Styles */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* Label */
+.label {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+/* Icons */
+.leftIcon,
+.rightIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ============================================ */
+/* Size Variants */
+/* ============================================ */
+
+/* Size: m (48px height) */
+.size-m {
+  height: 48px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.size-m .leftIcon,
+.size-m .rightIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Size: s (40px height) */
+.size-s {
+  height: 40px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.size-s .leftIcon,
+.size-s .rightIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Size: xs (24px height) - Ghost only */
+.size-xs {
+  height: 24px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.size-xs .leftIcon,
+.size-xs .rightIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* ============================================ */
+/* Hiraki Variants - Primary */
+/* ============================================ */
+
+.hiraki-primary.position-enabled {
+  background-color: #2974e5;
+  color: #ffffff;
+}
+
+.hiraki-primary.position-enabled:hover {
+  background-color: #2568ce;
+}
+
+.hiraki-primary.position-enabled:active {
+  background-color: #215db7;
+}
+
+.hiraki-primary.position-disabled {
+  background-color: #c7c7c7;
+  color: #e4e4e4;
+}
+
+/* ============================================ */
+/* Hiraki Variants - Secondary */
+/* ============================================ */
+
+.hiraki-secondary.position-enabled {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.hiraki-secondary.position-enabled:hover {
+  background-color: #333333;
+}
+
+.hiraki-secondary.position-enabled:active {
+  background-color: #1c1c1c;
+}
+
+.hiraki-secondary.position-disabled {
+  background-color: #c7c7c7;
+  color: #e4e4e4;
+}
+
+/* ============================================ */
+/* Hiraki Variants - Tertiary */
+/* ============================================ */
+
+.hiraki-tertiary.position-enabled {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+.hiraki-tertiary.position-enabled:hover {
+  background-color: #f2f2f2;
+}
+
+.hiraki-tertiary.position-enabled:active {
+  background-color: #e4e4e4;
+}
+
+.hiraki-tertiary.position-disabled {
+  background-color: #f2f2f2;
+  color: #c7c7c7;
+  border: 1px solid #c7c7c7;
+}
+
+/* ============================================ */
+/* Hiraki Variants - Quaternary */
+/* ============================================ */
+
+.hiraki-quaternary.position-enabled {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 100px;
+}
+
+.hiraki-quaternary.position-enabled:hover {
+  background-color: #333333;
+}
+
+.hiraki-quaternary.position-enabled:active {
+  background-color: #1c1c1c;
+}
+
+.hiraki-quaternary.position-disabled {
+  background-color: #c7c7c7;
+  color: #e4e4e4;
+  border-radius: 100px;
+}
+
+/* ============================================ */
+/* Hiraki Variants - Ghost */
+/* ============================================ */
+
+.hiraki-ghost.position-enabled {
+  background-color: transparent;
+  color: #333333;
+}
+
+.hiraki-ghost.position-enabled:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.hiraki-ghost.position-enabled:active {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.hiraki-ghost.position-disabled {
+  background-color: transparent;
+  color: #e4e4e4;
+}
