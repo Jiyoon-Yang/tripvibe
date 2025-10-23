@@ -54,15 +54,15 @@ export const Pagination: React.FC<PaginationProps> = ({
   };
 
   const pageNumbers = getPageNumbers();
-  const showLeftArrow = currentPage > 1;
-  const showRightArrow = currentPage < totalPages;
+  const isLeftDisabled = currentPage <= 1;
+  const isRightDisabled = currentPage >= totalPages;
 
   // variant 결정
   const getVariant = (): string => {
     if (totalPages === 1) return "single-page";
     if (totalPages === 2) return "two-pages";
-    if (showLeftArrow && showRightArrow) return "both-arrows";
-    if (showLeftArrow && !showRightArrow) return "left-arrow-only";
+    if (!isLeftDisabled && !isRightDisabled) return "both-arrows";
+    if (!isLeftDisabled && isRightDisabled) return "left-arrow-only";
     return "three-or-more";
   };
 
@@ -106,20 +106,22 @@ export const Pagination: React.FC<PaginationProps> = ({
   return (
     <div className={paginationClassName}>
       {/* 왼쪽 화살표 */}
-      {showLeftArrow && (
-        <button
-          className={`${styles.arrowButton} ${styles.leftArrow}`}
-          onClick={handlePrevPage}
-          aria-label="이전 페이지"
-          disabled={!showLeftArrow}>
-          <Image
-            src="/icons/left_arrow.svg"
-            alt="이전"
-            width={size === "m" ? 24 : 24}
-            height={size === "m" ? 24 : 24}
-          />
-        </button>
-      )}
+      <button
+        className={`${styles.arrowButton} ${styles.leftArrow}`}
+        onClick={handlePrevPage}
+        aria-label="이전 페이지"
+        disabled={isLeftDisabled}>
+        <Image
+          src={
+            isLeftDisabled
+              ? "/icons/left_arrow_disabled.svg"
+              : "/icons/left_arrow.svg"
+          }
+          alt="이전"
+          width={24}
+          height={24}
+        />
+      </button>
 
       {/* 페이지 번호들 */}
       <div className={styles.pageNumbers}>
@@ -138,20 +140,22 @@ export const Pagination: React.FC<PaginationProps> = ({
       </div>
 
       {/* 오른쪽 화살표 */}
-      {showRightArrow && (
-        <button
-          className={`${styles.arrowButton} ${styles.rightArrow}`}
-          onClick={handleNextPage}
-          aria-label="다음 페이지"
-          disabled={!showRightArrow}>
-          <Image
-            src="/icons/right_arrow.svg"
-            alt="다음"
-            width={size === "m" ? 24 : 24}
-            height={size === "m" ? 24 : 24}
-          />
-        </button>
-      )}
+      <button
+        className={`${styles.arrowButton} ${styles.rightArrow}`}
+        onClick={handleNextPage}
+        aria-label="다음 페이지"
+        disabled={isRightDisabled}>
+        <Image
+          src={
+            isRightDisabled
+              ? "/icons/right_arrow_disabled.svg"
+              : "/icons/right_arrow.svg"
+          }
+          alt="다음"
+          width={24}
+          height={24}
+        />
+      </button>
     </div>
   );
 };
