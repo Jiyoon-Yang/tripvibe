@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ModalProvider } from "@/commons/providers/modal/modal.provider";
 import { NextThemesProvider } from "@/commons/providers/next-themes/next-themes.provider";
+import { ReactQueryProvider } from "@/commons/providers/react-query/react-query.provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,12 +30,14 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <NextThemesProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem>
-          <ModalProvider>{children}</ModalProvider>
-        </NextThemesProvider>
+        <ReactQueryProvider>
+          <NextThemesProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem>
+            <ModalProvider>{children}</ModalProvider>
+          </NextThemesProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );
