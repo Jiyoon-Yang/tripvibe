@@ -2,72 +2,83 @@ import React from "react";
 import Image from "next/image";
 import styles from "./styles.module.css";
 
-export interface TabItem {
-  id: string;
-  label: string;
-}
-
 export interface TabsProps {
-  items: TabItem[];
-  selectedId: string;
-  onTabChange: (id: string) => void;
-  position?: "primary-black" | "secondary" | "side" | "primary-white";
-  size?: "s" | "m";
+  /**
+   * 탭의 위치/스타일 타입
+   */
+  position: "primary-black" | "secondary" | "side" | "primary-white";
+  /**
+   * 탭의 크기
+   */
+  size: "s" | "m";
+  /**
+   * 선택된 상태
+   */
+  selected: "on" | "off";
+  /**
+   * 탭에 표시될 텍스트
+   */
+  children: React.ReactNode;
+  /**
+   * 클릭 핸들러
+   */
+  onClick?: () => void;
+  /**
+   * 추가 CSS 클래스명
+   */
   className?: string;
 }
 
 export const Tabs: React.FC<TabsProps> = ({
-  items,
-  selectedId,
-  onTabChange,
-  position = "primary-black",
-  size = "m",
-  className,
+  position,
+  size,
+  selected,
+  children,
+  onClick,
+  className = "",
 }) => {
-  const containerClass = [
-    styles.tabsContainer,
-    styles[`position-${position}`],
-    styles[`size-${size}`],
-    className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  const getTabClasses = () => {
+    const baseClasses = [
+      styles.tabs,
+      styles[`position-${position}`],
+      styles[`size-${size}`],
+      styles[`selected-${selected}`],
+    ];
+
+    if (className) {
+      baseClasses.push(className);
+    }
+
+    return baseClasses.join(" ");
+  };
+
+  const getTextClasses = () => {
+    return [
+      styles.text,
+      styles[`text-${position}`],
+      styles[`text-${size}`],
+      styles[`text-selected-${selected}`],
+    ].join(" ");
+  };
+
+  const getIconClasses = () => {
+    return [styles.icon, styles[`icon-${size}`]].join(" ");
+  };
 
   return (
-    <div className={containerClass}>
-      {items.map((item) => {
-        const isSelected = item.id === selectedId;
-        const tabClass = [
-          styles.tab,
-          styles[`position-${position}`],
-          styles[`size-${size}`],
-          isSelected ? styles.selected : styles.unselected,
-        ]
-          .filter(Boolean)
-          .join(" ");
-
-        return (
-          <button
-            key={item.id}
-            className={tabClass}
-            onClick={() => onTabChange(item.id)}
-            aria-selected={isSelected}
-            role="tab">
-            {position === "side" && <span className={styles.sideIcon} />}
-            <span className={styles.label}>{item.label}</span>
-            {position === "side" && (
-              <Image
-                src="/icons/right_arrow.svg"
-                alt=""
-                width={size === "m" ? 20 : 16}
-                height={size === "m" ? 20 : 16}
-                className={styles.arrowIcon}
-              />
-            )}
-          </button>
-        );
-      })}
-    </div>
+    <button className={getTabClasses()} onClick={onClick} type="button">
+      {position === "side" && (
+        <div className={getIconClasses()}>
+          <Image src="/icons/right_arrow.svg" alt="" width={20} height={20} />
+        </div>
+      )}
+      <span className={getTextClasses()}>{children}</span>
+      {position === "side" && (
+        <div className={getIconClasses()}>
+          <Image src="/icons/right_arrow.svg" alt="" width={20} height={20} />
+        </div>
+      )}
+    </button>
   );
 };
 
