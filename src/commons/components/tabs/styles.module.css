@@ -32,12 +32,14 @@
 
 /* Primary Black Position */
 .tab.position-primary-black.size-m {
+  width: 72px;
   height: 40px;
   padding: 0 8px;
   border-radius: 8px;
 }
 
 .tab.position-primary-black.size-s {
+  width: 57px;
   height: 32px;
   padding: 0 8px;
   border-radius: 8px;
@@ -63,12 +65,14 @@
 
 /* Primary White Position */
 .tab.position-primary-white.size-m {
+  width: 72px;
   height: 40px;
   padding: 0 8px;
   border-radius: 8px;
 }
 
 .tab.position-primary-white.size-s {
+  width: 57px;
   height: 32px;
   padding: 0 8px;
   border-radius: 8px;
@@ -94,12 +98,14 @@
 
 /* Secondary Position */
 .tab.position-secondary.size-m {
+  width: 88px;
   height: 40px;
   padding: 0 16px;
   border-radius: 8px;
 }
 
 .tab.position-secondary.size-s {
+  width: 65px;
   height: 28px;
   padding: 0 8px;
   border-radius: 8px;
@@ -125,19 +131,19 @@
 
 /* Side Position */
 .tab.position-side.size-m {
+  width: 232px;
   height: 40px;
   padding: 0 12px;
   border-radius: 8px;
   justify-content: space-between;
-  width: 100%;
 }
 
 .tab.position-side.size-s {
+  width: 232px;
   height: 36px;
   padding: 0 12px;
   border-radius: 8px;
   justify-content: space-between;
-  width: 100%;
 }
 
 .tab.position-side.unselected {
