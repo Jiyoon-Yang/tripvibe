@@ -1,0 +1,170 @@
+/* Base Pagination Styles */
+.pagination {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  box-sizing: border-box;
+}
+
+/* Page Numbers Container */
+.pageNumbers {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ============================================ */
+/* Button Base Styles */
+/* ============================================ */
+
+.pageButton,
+.arrowButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.pageButton:focus,
+.arrowButton:focus {
+  outline: none;
+}
+
+.arrowButton {
+  background: transparent;
+}
+
+.arrowButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+/* ============================================ */
+/* Size Variants - m */
+/* ============================================ */
+
+.size-m .pageButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #777777;
+}
+
+.size-m .pageButton.selected {
+  background-color: #f2f2f2;
+  color: #000000;
+  font-weight: 500;
+}
+
+.size-m .pageButton:not(.selected):hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.size-m .pageButton:not(.selected):active {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.size-m .arrowButton {
+  width: 24px;
+  height: 24px;
+}
+
+/* ============================================ */
+/* Size Variants - s */
+/* ============================================ */
+
+.size-s .pageButton {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #777777;
+}
+
+.size-s .pageButton.selected {
+  background-color: #f2f2f2;
+  color: #000000;
+  font-weight: 500;
+}
+
+.size-s .pageButton:not(.selected):hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.size-s .pageButton:not(.selected):active {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.size-s .arrowButton {
+  width: 24px;
+  height: 24px;
+}
+
+/* ============================================ */
+/* Variant Styles */
+/* ============================================ */
+
+/* Single Page (페이지 1개) */
+.variant-single-page {
+  gap: 0;
+}
+
+/* Two Pages (2개 페이지) */
+.variant-two-pages {
+  gap: 8px;
+}
+
+/* Three or More Pages (3개 이상 페이지) */
+.variant-three-or-more {
+  gap: 8px;
+}
+
+/* Both Arrows Enabled (leftright 아이콘 버튼 'enable') */
+.variant-both-arrows {
+  gap: 8px;
+}
+
+/* Left Arrow Only (left 아이콘 버튼 'enable') */
+.variant-left-arrow-only {
+  gap: 8px;
+}
+
+/* ============================================ */
+/* Arrow Button Styles */
+/* ============================================ */
+
+.arrowButton img {
+  display: block;
+}
+
+.leftArrow {
+  margin-right: 0px;
+}
+
+.rightArrow {
+  margin-left: 0px;
+}
+
+/* ============================================ */
+/* Accessibility */
+/* ============================================ */
+
+.pageButton[aria-current="page"] {
+  background-color: #f2f2f2;
+  color: #000000;
+  font-weight: 500;
+}
