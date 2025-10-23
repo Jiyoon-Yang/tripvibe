@@ -1,0 +1,124 @@
+/* Searchbar Container */
+.searchbarContainer {
+  display: flex;
+  align-items: center;
+  width: 640px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  gap: 8px;
+  padding: 0 12px;
+}
+
+/* Search Icon */
+.searchIcon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+/* Search Input */
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  box-sizing: border-box;
+}
+
+.searchInput::placeholder {
+  color: #919191; /* gray.500 */
+}
+
+/* Cursor (for selected state) */
+.cursor {
+  flex-shrink: 0;
+  width: 0.5px;
+  background-color: #000000;
+}
+
+/* ===== Size Variants ===== */
+
+/* Size: m (48px) */
+.size-m {
+  height: 48px;
+}
+
+.size-m .searchInput {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.size-m .cursor {
+  height: 20px;
+}
+
+/* Size: s (40px) */
+.size-s {
+  height: 40px;
+}
+
+.size-s .searchInput {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.size-s .cursor {
+  height: 16px;
+}
+
+/* ===== State Variants ===== */
+
+/* State: default */
+.state-default {
+  background-color: #f2f2f2; /* gray.50 */
+  border: 1px solid transparent;
+}
+
+.state-default .searchInput {
+  color: #919191; /* gray.500 */
+}
+
+/* State: selected */
+.state-selected {
+  background-color: #ffffff; /* white */
+  border: 1px solid #000000; /* black */
+}
+
+.state-selected .searchInput {
+  color: #919191; /* gray.500 */
+}
+
+/* State: typing */
+.state-typing {
+  background-color: #ffffff; /* white */
+  border: 1px solid #000000; /* black */
+}
+
+.state-typing .searchInput {
+  color: #000000; /* black */
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* State: filled */
+.state-filled {
+  background-color: #f2f2f2; /* gray.50 */
+  border: 1px solid transparent;
+}
+
+.state-filled .searchInput {
+  color: #000000; /* black */
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* Focus state */
+.searchInput:focus {
+  outline: none;
+}
