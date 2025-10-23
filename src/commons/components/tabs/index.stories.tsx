@@ -1,178 +1,238 @@
-// eslint-disable-next-line storybook/no-renderer-packages
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { Tabs } from "./index";
 
 const meta: Meta<typeof Tabs> = {
-  title: "Components/Tabs",
+  title: "Commons/Components/Tabs",
   component: Tabs,
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component:
+          "탭 컴포넌트는 다양한 위치와 크기, 선택 상태를 지원하는 완전한 variant 시스템을 제공합니다.",
+      },
+    },
   },
-  tags: ["autodocs"],
   argTypes: {
     position: {
       control: { type: "select" },
       options: ["primary-black", "secondary", "side", "primary-white"],
+      description: "탭의 위치/스타일 variant",
     },
     size: {
       control: { type: "select" },
       options: ["s", "m"],
+      description: "탭의 크기",
     },
     selected: {
       control: { type: "select" },
       options: ["on", "off"],
+      description: "선택된 상태",
     },
     children: {
       control: { type: "text" },
+      description: "탭의 텍스트 내용",
     },
-    onClick: { action: "clicked" },
+    disabled: {
+      control: { type: "boolean" },
+      description: "비활성화 상태",
+    },
+    onClick: {
+      action: "clicked",
+      description: "클릭 핸들러",
+    },
   },
+  tags: ["autodocs"],
 };
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Tabs>;
 
-// Primary Black variants
-export const PrimaryBlackMediumOff: Story = {
+// 기본 스토리
+export const Default: Story = {
   args: {
-    position: "primary-black",
+    children: "트립토크",
+    position: "secondary",
     size: "m",
     selected: "off",
-    children: "트립토크",
   },
 };
 
-export const PrimaryBlackMediumOn: Story = {
+// Primary Black Variants
+export const PrimaryBlackOff: Story = {
   args: {
+    children: "트립토크",
+    position: "primary-black",
+    size: "m",
+    selected: "off",
+  },
+};
+
+export const PrimaryBlackOn: Story = {
+  args: {
+    children: "트립토크",
     position: "primary-black",
     size: "m",
     selected: "on",
-    children: "트립토크",
   },
 };
 
-export const PrimaryBlackSmallOff: Story = {
+export const PrimaryBlackSmall: Story = {
   args: {
+    children: "트립토크",
     position: "primary-black",
     size: "s",
     selected: "off",
-    children: "트립토크",
   },
 };
 
 export const PrimaryBlackSmallOn: Story = {
   args: {
+    children: "트립토크",
     position: "primary-black",
     size: "s",
     selected: "on",
-    children: "트립토크",
   },
 };
 
-// Primary White variants
-export const PrimaryWhiteMediumOff: Story = {
+// Primary White Variants
+export const PrimaryWhiteOff: Story = {
   args: {
+    children: "트립토크",
     position: "primary-white",
     size: "m",
     selected: "off",
-    children: "트립토크",
   },
   parameters: {
     backgrounds: { default: "dark" },
   },
 };
 
-export const PrimaryWhiteMediumOn: Story = {
+export const PrimaryWhiteOn: Story = {
   args: {
+    children: "트립토크",
     position: "primary-white",
     size: "m",
     selected: "on",
-    children: "트립토크",
   },
   parameters: {
     backgrounds: { default: "dark" },
   },
 };
 
-// Secondary variants
-export const SecondaryMediumOff: Story = {
+// Secondary Variants
+export const SecondaryOff: Story = {
   args: {
+    children: "트립토크",
     position: "secondary",
     size: "m",
     selected: "off",
-    children: "트립토크",
   },
 };
 
-export const SecondaryMediumOn: Story = {
+export const SecondaryOn: Story = {
   args: {
+    children: "트립토크",
     position: "secondary",
     size: "m",
     selected: "on",
-    children: "트립토크",
   },
 };
 
-export const SecondarySmallOff: Story = {
+export const SecondarySmall: Story = {
   args: {
+    children: "트립토크",
     position: "secondary",
     size: "s",
     selected: "off",
-    children: "트립토크",
   },
 };
 
 export const SecondarySmallOn: Story = {
   args: {
+    children: "트립토크",
     position: "secondary",
     size: "s",
     selected: "on",
-    children: "트립토크",
   },
 };
 
-// Side variants
-export const SideMediumOff: Story = {
+// Side Variants
+export const SideOff: Story = {
   args: {
+    children: "트립토크",
     position: "side",
     size: "m",
     selected: "off",
-    children: "트립토크",
   },
 };
 
-export const SideMediumOn: Story = {
+export const SideOn: Story = {
   args: {
+    children: "트립토크",
     position: "side",
     size: "m",
     selected: "on",
-    children: "트립토크",
   },
 };
 
-export const SideSmallOff: Story = {
+export const SideSmall: Story = {
   args: {
+    children: "트립토크",
     position: "side",
     size: "s",
     selected: "off",
-    children: "트립토크",
   },
 };
 
 export const SideSmallOn: Story = {
   args: {
+    children: "트립토크",
     position: "side",
     size: "s",
     selected: "on",
-    children: "트립토크",
   },
 };
 
-// All variants showcase
+// Disabled State
+export const Disabled: Story = {
+  args: {
+    children: "트립토크",
+    position: "secondary",
+    size: "m",
+    selected: "off",
+    disabled: true,
+  },
+};
+
+// Interactive Example
+export const Interactive: Story = {
+  args: {
+    children: "클릭해보세요",
+    position: "secondary",
+    size: "m",
+    selected: "off",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "탭을 클릭하여 상호작용을 확인할 수 있습니다.",
+      },
+    },
+  },
+};
+
+// All Variants Showcase
 export const AllVariants: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-      <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "20px",
+        padding: "20px",
+      }}>
+      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
         <Tabs position="primary-black" size="m" selected="off">
           Primary Black Off
         </Tabs>
@@ -187,7 +247,16 @@ export const AllVariants: Story = {
         </Tabs>
       </div>
 
-      <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+        <Tabs position="primary-white" size="m" selected="off">
+          Primary White Off
+        </Tabs>
+        <Tabs position="primary-white" size="m" selected="on">
+          Primary White On
+        </Tabs>
+      </div>
+
+      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
         <Tabs position="secondary" size="m" selected="off">
           Secondary Off
         </Tabs>
@@ -202,7 +271,7 @@ export const AllVariants: Story = {
         </Tabs>
       </div>
 
-      <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
         <Tabs position="side" size="m" selected="off">
           Side Off
         </Tabs>
@@ -216,23 +285,13 @@ export const AllVariants: Story = {
           Side S On
         </Tabs>
       </div>
-
-      <div
-        style={{
-          display: "flex",
-          gap: "10px",
-          alignItems: "center",
-          background: "#000",
-          padding: "10px",
-          borderRadius: "8px",
-        }}>
-        <Tabs position="primary-white" size="m" selected="off">
-          Primary White Off
-        </Tabs>
-        <Tabs position="primary-white" size="m" selected="on">
-          Primary White On
-        </Tabs>
-      </div>
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "모든 variant 조합을 한 번에 확인할 수 있습니다.",
+      },
+    },
+  },
 };

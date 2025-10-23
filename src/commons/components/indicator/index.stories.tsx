@@ -1,5 +1,4 @@
-// eslint-disable-next-line storybook/no-renderer-packages
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import React from "react";
 import { Indicator } from "./index";
 
@@ -159,7 +158,7 @@ export const Interactive: Story = {
 
     React.useEffect(() => {
       setCurrent(args.current);
-    }, [args.current]);
+    }, [args]);
 
     return (
       <div

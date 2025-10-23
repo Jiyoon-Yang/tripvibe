@@ -1,5 +1,4 @@
-// eslint-disable-next-line storybook/no-renderer-packages
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { Searchbar } from "./index";
 
 /**
@@ -204,9 +203,7 @@ export const SearchExample: Story = {
         gap: "24px",
       }}>
       <div>
-        <h4 style={{ marginBottom: "12px", fontSize: "14px" }}>
-          기본 검색바
-        </h4>
+        <h4 style={{ marginBottom: "12px", fontSize: "14px" }}>기본 검색바</h4>
         <Searchbar
           state="default"
           size="m"
@@ -269,11 +266,7 @@ export const CustomPlaceholder: Story = {
         size="m"
         placeholder="여행지를 검색해 주세요."
       />
-      <Searchbar
-        state="default"
-        size="m"
-        placeholder="숙소를 검색해 주세요."
-      />
+      <Searchbar state="default" size="m" placeholder="숙소를 검색해 주세요." />
       <Searchbar
         state="default"
         size="m"
@@ -294,4 +287,3 @@ export const Interactive: Story = {
     placeholder: "제목을 검색해 주세요.",
   },
 };
-
