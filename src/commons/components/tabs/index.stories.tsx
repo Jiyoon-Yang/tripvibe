@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/nextjs";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { Tabs } from "./index";
 
 const meta: Meta<typeof Tabs> = {
-  title: "Components/Tabs",
+  title: "Commons/Components/Tabs",
   component: Tabs,
   parameters: {
     layout: "centered",

@@ -4,6 +4,7 @@ import "./globals.css";
 import { ModalProvider } from "@/commons/providers/modal/modal.provider";
 import { NextThemesProvider } from "@/commons/providers/next-themes/next-themes.provider";
 import { ReactQueryProvider } from "@/commons/providers/react-query/react-query.provider";
+import { Layout } from "@/commons/layout";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,7 +36,9 @@ export default function RootLayout({
             attribute="class"
             defaultTheme="system"
             enableSystem>
-            <ModalProvider>{children}</ModalProvider>
+            <ModalProvider>
+              <Layout>{children}</Layout>
+            </ModalProvider>
           </NextThemesProvider>
         </ReactQueryProvider>
       </body>

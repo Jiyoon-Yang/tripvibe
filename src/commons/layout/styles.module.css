@@ -1,0 +1,108 @@
+/**
+ * Layout 컴포넌트 스타일
+ * HTML과 flexbox를 활용한 와이어프레임 구조
+ * 각 영역의 수치값을 정확히 반영
+ */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Navigation 영역: 1280 * 80 */
+.navigation {
+  width: 1280px;
+  height: 80px;
+  background-color: var(--gray-w);
+  border-bottom: 1px solid var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.navigationContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+/* Banner 영역: 1920 * 516 */
+.banner {
+  width: 1920px;
+  height: 516px;
+  background-color: var(--gray-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.bannerContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Gap 영역: 1280 * 40 */
+.gap {
+  width: 1280px;
+  height: 40px;
+  background-color: transparent;
+  margin: 0 auto;
+}
+
+/* Main Content 영역: 1280 * 1136 */
+.mainContent {
+  width: 1280px;
+  min-height: 1136px;
+  background-color: var(--gray-w);
+  margin: 0 auto;
+  flex: 1;
+}
+
+.contentWrapper {
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+
+/* 반응형 디자인을 위한 미디어 쿼리 */
+@media (max-width: 1280px) {
+  .navigation,
+  .gap,
+  .mainContent {
+    width: 100%;
+    max-width: 1280px;
+  }
+
+  .banner {
+    width: 100%;
+    max-width: 1920px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    height: 60px;
+  }
+
+  .banner {
+    height: 300px;
+  }
+
+  .gap {
+    height: 20px;
+  }
+
+  .mainContent {
+    min-height: auto;
+  }
+}
