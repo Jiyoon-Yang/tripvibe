@@ -1,0 +1,197 @@
+/* Tabs Container */
+.tabsContainer {
+  display: flex;
+  gap: 0;
+}
+
+.tabsContainer.position-primary-black,
+.tabsContainer.position-primary-white {
+  gap: 40px;
+}
+
+.tabsContainer.position-secondary {
+  gap: 8px;
+}
+
+.tabsContainer.position-side {
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Tab Base Styles */
+.tab {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: "Pretendard Variable", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Primary Black Position */
+.tab.position-primary-black.size-m {
+  height: 40px;
+  padding: 0 8px;
+  border-radius: 8px;
+}
+
+.tab.position-primary-black.size-s {
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 8px;
+}
+
+.tab.position-primary-black.unselected {
+  color: #333333;
+  border-bottom: 2px solid transparent;
+}
+
+.tab.position-primary-black.selected {
+  color: #000000;
+  border-bottom: 2px solid #000000;
+}
+
+.tab.position-primary-black.unselected .label {
+  font-weight: 500;
+}
+
+.tab.position-primary-black.selected .label {
+  font-weight: 700;
+}
+
+/* Primary White Position */
+.tab.position-primary-white.size-m {
+  height: 40px;
+  padding: 0 8px;
+  border-radius: 8px;
+}
+
+.tab.position-primary-white.size-s {
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 8px;
+}
+
+.tab.position-primary-white.unselected {
+  color: #f2f2f2;
+  border-bottom: 2px solid transparent;
+}
+
+.tab.position-primary-white.selected {
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+.tab.position-primary-white.unselected .label {
+  font-weight: 500;
+}
+
+.tab.position-primary-white.selected .label {
+  font-weight: 700;
+}
+
+/* Secondary Position */
+.tab.position-secondary.size-m {
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 8px;
+}
+
+.tab.position-secondary.size-s {
+  height: 28px;
+  padding: 0 8px;
+  border-radius: 8px;
+}
+
+.tab.position-secondary.unselected {
+  background: #ffffff;
+  color: #525252;
+}
+
+.tab.position-secondary.selected {
+  background: #000000;
+  color: #ffffff;
+}
+
+.tab.position-secondary.unselected .label {
+  font-weight: 500;
+}
+
+.tab.position-secondary.selected .label {
+  font-weight: 600;
+}
+
+/* Side Position */
+.tab.position-side.size-m {
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 8px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.tab.position-side.size-s {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 8px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.tab.position-side.unselected {
+  background: transparent;
+  color: #000000;
+}
+
+.tab.position-side.selected {
+  background: #f2f2f2;
+  color: #000000;
+}
+
+.tab.position-side.unselected .label {
+  font-weight: 400;
+}
+
+.tab.position-side.selected .label {
+  font-weight: 600;
+}
+
+.tab.position-side .label {
+  text-align: left;
+  flex: 1;
+}
+
+/* Label Styles */
+.label {
+  text-align: center;
+  letter-spacing: 0;
+}
+
+.tab.size-m .label {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.tab.size-s .label {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* Side Icons */
+.sideIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  visibility: hidden;
+}
+
+.arrowIcon {
+  margin-left: 8px;
+}
+
+.tab.size-s .sideIcon {
+  width: 16px;
+  height: 16px;
+}
