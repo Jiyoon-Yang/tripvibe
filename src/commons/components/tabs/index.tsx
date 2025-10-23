@@ -8,7 +8,7 @@ export interface TabsProps {
    */
   position: "primary-black" | "secondary" | "side" | "primary-white";
   /**
-   * 탭 크기
+   * 탭의 크기
    */
   size: "s" | "m";
   /**
@@ -16,11 +16,7 @@ export interface TabsProps {
    */
   selected: "on" | "off";
   /**
-   * 비활성화 상태
-   */
-  disabled?: boolean;
-  /**
-   * 탭 텍스트 내용
+   * 탭에 표시될 텍스트
    */
   children: React.ReactNode;
   /**
@@ -34,68 +30,48 @@ export interface TabsProps {
 }
 
 /**
- * 다양한 위치(position)와 크기(size)를 지원하는 범용 탭 컴포넌트
- *
- * @example
- * ```tsx
- * <Tabs position="secondary" size="m" selected="on">
- *   탭 텍스트
- * </Tabs>
- * ```
+ * Tabs 컴포넌트
+ * 다양한 position, size, selected 상태를 지원하는 탭 컴포넌트
  */
 export const Tabs: React.FC<TabsProps> = ({
   position,
   size,
   selected,
-  disabled = false,
   children,
   onClick,
   className = "",
 }) => {
-  const handleClick = () => {
-    if (!disabled && onClick) {
-      onClick();
-    }
+  const getTabClassName = () => {
+    const baseClass = styles.tab;
+    const positionClass = styles[`position-${position}`];
+    const sizeClass = styles[`size-${size}`];
+    const selectedClass = styles[`selected-${selected}`];
+
+    return `${baseClass} ${positionClass} ${sizeClass} ${selectedClass} ${className}`.trim();
   };
 
-  const getTabClasses = () => {
-    const baseClasses = [
-      styles.tab,
-      styles[`position-${position}`],
-      styles[`size-${size}`],
-      styles[`selected-${selected}`],
-    ];
-
-    if (disabled) {
-      baseClasses.push(styles.disabled);
+  const renderSideContent = () => {
+    if (position === "side") {
+      return (
+        <>
+          <div className={styles.iconFrame} />
+          <span className={styles.sideText}>{children}</span>
+          <Image
+            src="/icons/right_arrow.svg"
+            alt="right arrow"
+            width={size === "m" ? 20 : 16}
+            height={size === "m" ? 20 : 16}
+            className={styles.rightArrow}
+          />
+        </>
+      );
     }
-
-    if (className) {
-      baseClasses.push(className);
-    }
-
-    return baseClasses.join(" ");
+    return children;
   };
 
   return (
-    <button
-      type="button"
-      className={getTabClasses()}
-      onClick={handleClick}
-      disabled={disabled}
-      aria-pressed={selected === "on"}>
-      {position === "side" && (
-        <div className={styles.iconContainer}>
-          <Image
-            src="/icons/right_arrow.svg"
-            alt=""
-            width={20}
-            height={20}
-            className={styles.icon}
-          />
-        </div>
-      )}
-      {children}
+    <button type="button" className={getTabClassName()} onClick={onClick}>
+      {renderSideContent()}
     </button>
   );
 };
