@@ -1,0 +1,98 @@
+/* DatePicker Base Styles */
+.datepicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  user-select: none;
+}
+
+.datepicker:hover:not(.disabled) {
+  background-color: #e4e4e4;
+}
+
+.datepicker:active:not(.disabled) {
+  background-color: #d4d3d3;
+}
+
+.datepicker:focus-visible {
+  outline: 2px solid #2974e5;
+  outline-offset: 2px;
+}
+
+/* Size Variants */
+.datepicker.size-s {
+  height: 40px;
+  padding: 8px 12px;
+  min-width: 263px;
+}
+
+.datepicker.size-m {
+  height: 48px;
+  padding: 12px;
+  min-width: 289px;
+}
+
+/* Icon Wrapper */
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+/* Date Text Wrapper */
+.dateTextWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.dateText {
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-weight: 400;
+  color: #777777;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0;
+}
+
+.size-s .dateText {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.size-m .dateText {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Placeholder State */
+.dateText.placeholder {
+  color: #ababab;
+}
+
+/* Disabled State */
+.datepicker.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: #f2f2f2;
+}
+
+.datepicker.disabled:hover {
+  background-color: #f2f2f2;
+}
