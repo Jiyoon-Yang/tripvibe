@@ -24,6 +24,5 @@
             - navigation: 1280 * 80
             - banner: 1920 * 516
             - {gap}: 1280 * 40
-            - {children}: 1280 * 1136 
-        
+            - {children}: 1280 * auto
 
