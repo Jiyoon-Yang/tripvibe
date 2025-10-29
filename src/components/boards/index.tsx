@@ -308,9 +308,6 @@ const Boards = () => {
             </div>
           </div>
 
-          {/* gap: 1280 * 24 */}
-          <div className={styles.gap24}></div>
-
           {/* pagination: 1184 * 32 */}
           <div className={styles.pagination}>
             <Pagination
@@ -321,9 +318,6 @@ const Boards = () => {
               className={styles.paginationComponent}
             />
           </div>
-
-          {/* gap: 1280 * 24 */}
-          <div className={styles.gap24}></div>
         </div>
       </div>
     </div>
