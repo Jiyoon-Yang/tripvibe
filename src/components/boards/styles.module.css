@@ -437,51 +437,12 @@
   justify-content: center;
 }
 
-.paginationContent {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.pageButton {
-  width: 24px;
-  height: 24px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pageNumbers {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.pageNumber {
-  width: 32px;
+/* 공통컴포넌트 Pagination을 위한 추가 스타일 */
+.paginationComponent {
+  width: 288px;
   height: 32px;
-  background-color: var(--gray-w);
-  border: none;
-  border-radius: 8px;
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-medium);
-  color: var(--gray-900);
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-family-ko-pretendard-variable);
-}
-
-.pageNumber.active {
-  background-color: var(--gray-50);
-  color: var(--gray-900);
-}
-
-.pageNumber:not(.active) {
-  color: var(--gray-600);
-  font-weight: var(--font-weight-regular);
+  gap: 8px;
 }

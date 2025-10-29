@@ -3,8 +3,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
-    sans-serif;
+  font-family: var(--font-family-ko-pretendard-variable);
   box-sizing: border-box;
 }
 
@@ -27,8 +26,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
-    sans-serif;
+  font-family: var(--font-family-ko-pretendard-variable);
   box-sizing: border-box;
   padding: 0;
   flex-shrink: 0;
@@ -55,16 +53,16 @@
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-  color: #777777;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--gray-600);
 }
 
 .size-m .pageButton.selected {
-  background-color: #f2f2f2;
-  color: #000000;
-  font-weight: 500;
+  background-color: var(--gray-50);
+  color: var(--gray-b);
+  font-weight: var(--font-weight-medium);
 }
 
 .size-m .pageButton:not(.selected):hover {
@@ -88,16 +86,16 @@
   width: 24px;
   height: 24px;
   border-radius: 8px;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
-  color: #777777;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--gray-600);
 }
 
 .size-s .pageButton.selected {
-  background-color: #f2f2f2;
-  color: #000000;
-  font-weight: 500;
+  background-color: var(--gray-50);
+  color: var(--gray-b);
+  font-weight: var(--font-weight-medium);
 }
 
 .size-s .pageButton:not(.selected):hover {
@@ -165,7 +163,7 @@
 /* ============================================ */
 
 .pageButton[aria-current="page"] {
-  background-color: #f2f2f2;
-  color: #000000;
-  font-weight: 500;
+  background-color: var(--gray-50);
+  color: var(--gray-b);
+  font-weight: var(--font-weight-medium);
 }

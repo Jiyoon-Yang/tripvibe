@@ -1,8 +1,11 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { Searchbar } from "../../commons/components/searchbar";
 import { Button } from "../../commons/components/button";
 import { DatePicker } from "../../commons/components/datepicker";
+import { Pagination } from "../../commons/components/pagination";
 import Image from "next/image";
 
 // 타입 정의
@@ -200,6 +203,14 @@ const BoardRow: React.FC<BoardRowProps> = ({ post }) => {
 };
 
 const Boards = () => {
+  // 페이지네이션 상태 관리
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 5; // Mock 데이터 기준
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div className={styles.container}>
       {/* hotpost: 1280 * 212 */}
@@ -302,33 +313,13 @@ const Boards = () => {
 
           {/* pagination: 1184 * 32 */}
           <div className={styles.pagination}>
-            <div className={styles.paginationContent}>
-              <button className={styles.pageButton}>
-                <Image
-                  src="/icons/chevron-left.svg"
-                  alt="이전 페이지"
-                  width={24}
-                  height={24}
-                />
-              </button>
-              <div className={styles.pageNumbers}>
-                <button className={`${styles.pageNumber} ${styles.active}`}>
-                  1
-                </button>
-                <button className={styles.pageNumber}>2</button>
-                <button className={styles.pageNumber}>3</button>
-                <button className={styles.pageNumber}>4</button>
-                <button className={styles.pageNumber}>5</button>
-              </div>
-              <button className={styles.pageButton}>
-                <Image
-                  src="/icons/chevron-right.svg"
-                  alt="다음 페이지"
-                  width={24}
-                  height={24}
-                />
-              </button>
-            </div>
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+              size="m"
+              className={styles.paginationComponent}
+            />
           </div>
 
           {/* gap: 1280 * 24 */}
