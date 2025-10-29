@@ -235,3 +235,22 @@
 .buttonItem {
   width: 105px;
 }
+
+/* gap - 40px */
+.gapLarge {
+  height: 40px;
+}
+
+/* retrospect-input */
+.retrospectInput {
+  width: 1280px;
+  height: 304px;
+  background-color: var(--gray-200);
+}
+
+/* retrospect-list */
+.retrospectList {
+  width: 1280px;
+  height: 136px;
+  background-color: var(--gray-300);
+}

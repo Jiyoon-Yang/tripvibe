@@ -208,8 +208,23 @@ const BoardsDetail = () => {
         </Button>
       </div>
 
-      {/* gap */}
+      {/* gap - 24px */}
       <div className={styles.gap}></div>
+
+      {/* gap - 40px */}
+      <div className={styles.gapLarge}></div>
+
+      {/* retrospect-input */}
+      <div className={styles.retrospectInput}></div>
+
+      {/* gap - 40px */}
+      <div className={styles.gapLarge}></div>
+
+      {/* retrospect-list */}
+      <div className={styles.retrospectList}></div>
+
+      {/* gap - 40px */}
+      <div className={styles.gapLarge}></div>
     </div>
   );
 };
