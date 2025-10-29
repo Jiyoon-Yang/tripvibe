@@ -1,191 +1,224 @@
-/* Base tab styles */
-.tab {
-  display: flex;
+/* 기본 탭 스타일 */
+.tabs {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
-    system-ui, Roboto, sans-serif;
-  cursor: pointer;
   border: none;
-  outline: none;
-  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+    "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", sans-serif;
+  text-align: center;
+  white-space: nowrap;
   user-select: none;
-  box-sizing: border-box;
+  position: relative;
 }
 
-.tab:focus {
+.tabs:focus {
   outline: none;
 }
 
-.tab:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
+.tabs:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
 }
 
-/* Position variants */
-.position-primary-black {
-  background: transparent;
-  border-radius: 8px;
-}
-
-.position-primary-black.selected-on {
-  border: 1px solid #000000;
-}
-
-.position-primary-black.selected-off {
-  border: 1px solid transparent;
-}
-
-.position-secondary {
-  border-radius: 8px;
-}
-
-.position-secondary.selected-off {
-  background: #ffffff;
-}
-
-.position-secondary.selected-on {
-  background: #000000;
-}
-
-.position-primary-white {
-  background: transparent;
-  border-radius: 8px;
-}
-
-.position-primary-white.selected-on {
-  border: 1px solid #ffffff;
-}
-
-.position-primary-white.selected-off {
-  border: 1px solid transparent;
-}
-
-.position-side {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0 16px;
-  background: transparent;
-  border-radius: 8px;
-  width: 232px;
-}
-
-.position-side.selected-on {
-  background: #f2f2f2;
-}
-
-.position-side.selected-off {
-  background: transparent;
-}
-
-/* Size variants */
-.size-m {
-  height: 40px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.size-m.position-primary-black,
-.size-m.position-primary-white {
-  padding: 0 16px;
-  min-width: 72px;
-}
-
-.size-m.position-secondary {
-  padding: 0 16px;
-  min-width: 88px;
-}
-
+/* 사이즈 스타일 */
 .size-s {
   height: 32px;
+  padding: 6px 12px;
   font-size: 14px;
+  font-weight: 500;
   line-height: 20px;
 }
 
-.size-s.position-primary-black,
-.size-s.position-primary-white {
-  padding: 0 12px;
-  min-width: 57px;
+.size-m {
+  height: 40px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
 }
 
-.size-s.position-secondary {
-  padding: 0 12px;
-  min-width: 65px;
-}
-
-.size-s.position-side {
-  height: 36px;
+/* Side position 특별 스타일 */
+.side {
+  justify-content: flex-start;
+  padding: 8px 12px;
   width: 232px;
 }
 
-/* Selected states */
-.selected-on {
-  font-weight: 700;
+.side.size-s {
+  height: 36px;
+  padding: 8px 12px;
 }
 
-.selected-off {
-  font-weight: 500;
+.side.size-m {
+  height: 40px;
+  padding: 8px 12px;
 }
 
-/* Text colors for different positions and states */
-.position-primary-black.selected-off {
+/* Primary Black 스타일 */
+.position-primary-black {
+  background-color: transparent;
   color: #333333;
 }
 
 .position-primary-black.selected-on {
+  background-color: transparent;
   color: #000000;
+  font-weight: 700;
+  border: 1px solid #000000;
 }
 
-.position-secondary.selected-off {
-  color: #525252;
-}
-
-.position-secondary.selected-on {
-  color: #ffffff;
-}
-
-.position-primary-white.selected-off {
+/* Primary White 스타일 */
+.position-primary-white {
+  background-color: transparent;
   color: #f2f2f2;
 }
 
 .position-primary-white.selected-on {
+  background-color: transparent;
   color: #ffffff;
+  font-weight: 700;
+  border: 1px solid #ffffff;
 }
 
-.position-side.selected-off {
+/* Secondary 스타일 */
+.position-secondary {
+  background-color: #ffffff;
+  color: #525252;
+  border: 1px solid #e0e0e0;
+}
+
+.position-secondary.selected-on {
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: 600;
+  border: 1px solid #000000;
+}
+
+/* Side 스타일 */
+.position-side {
+  background-color: transparent;
   color: #000000;
-  font-weight: 400;
+  border: none;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .position-side.selected-on {
+  background-color: #f2f2f2;
   color: #000000;
   font-weight: 600;
+  border: none;
 }
 
-/* Hover effects */
-.tab:hover:not(:disabled) {
-  opacity: 0.8;
+.position-side.selected-off {
+  background-color: transparent;
+  color: #000000;
+  font-weight: 400;
+  border: none;
 }
 
-/* Focus styles */
-.tab:focus-visible {
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+/* 아이콘 컨테이너 */
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
 }
 
-/* Side variant specific styles */
-.iconFrame {
+.side.size-s .iconContainer {
   width: 16px;
   height: 16px;
-  flex-shrink: 0;
+  margin-right: 6px;
 }
 
-.sideText {
+.iconFrame {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+/* 텍스트 스타일 */
+.text {
   flex: 1;
   text-align: left;
 }
 
-.rightArrow {
-  flex-shrink: 0;
-  margin-left: auto;
+.side .text {
+  text-align: left;
+}
+
+/* 화살표 컨테이너 */
+.arrowContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  width: 20px;
+  height: 20px;
+}
+
+.side.size-s .arrowContainer {
+  width: 16px;
+  height: 16px;
+  margin-left: 6px;
+}
+
+.arrow {
+  width: 100%;
+  height: 100%;
+  color: currentColor;
+}
+
+/* 비활성화 상태 */
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.disabled:hover {
+  transform: none;
+}
+
+/* 호버 효과 */
+.tabs:not(.disabled):hover {
+  transform: translateY(-1px);
+}
+
+.tabs:not(.disabled):active {
+  transform: translateY(0);
+}
+
+/* Side position 호버 효과 */
+.side:not(.disabled):hover {
+  background-color: #f8f9fa;
+  transform: none;
+}
+
+.side.selected-on:not(.disabled):hover {
+  background-color: #e9ecef;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .side {
+    width: 200px;
+  }
+
+  .size-s {
+    font-size: 13px;
+  }
+
+  .size-m {
+    font-size: 15px;
+  }
 }

@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
-import Image from "next/image";
 import styles from "./styles.module.css";
+import { cn } from "../../utils/cn";
 
 export interface TabsProps {
   /**
@@ -8,7 +10,7 @@ export interface TabsProps {
    */
   position: "primary-black" | "secondary" | "side" | "primary-white";
   /**
-   * 탭의 크기
+   * 탭 크기
    */
   size: "s" | "m";
   /**
@@ -20,60 +22,87 @@ export interface TabsProps {
    */
   children: React.ReactNode;
   /**
+   * 비활성화 상태
+   */
+  disabled?: boolean;
+  /**
    * 클릭 이벤트 핸들러
    */
   onClick?: () => void;
   /**
-   * 추가 CSS 클래스명
+   * 추가 CSS 클래스
    */
   className?: string;
 }
 
-/**
- * Tabs 컴포넌트
- * 다양한 position, size, selected 상태를 지원하는 탭 컴포넌트
- */
-export const Tabs: React.FC<TabsProps> = ({
-  position,
-  size,
-  selected,
-  children,
-  onClick,
-  className = "",
-}) => {
-  const getTabClassName = () => {
-    const baseClass = styles.tab;
-    const positionClass = styles[`position-${position}`];
-    const sizeClass = styles[`size-${size}`];
-    const selectedClass = styles[`selected-${selected}`];
+export const Tabs = React.forwardRef<HTMLButtonElement, TabsProps>(
+  (
+    {
+      position,
+      size,
+      selected,
+      children,
+      disabled = false,
+      onClick,
+      className,
+      ...props
+    },
+    ref
+  ) => {
+    const handleClick = () => {
+      if (!disabled && onClick) {
+        onClick();
+      }
+    };
 
-    return `${baseClass} ${positionClass} ${sizeClass} ${selectedClass} ${className}`.trim();
-  };
+    const isSidePosition = position === "side";
 
-  const renderSideContent = () => {
-    if (position === "side") {
-      return (
-        <>
-          <div className={styles.iconFrame} />
-          <span className={styles.sideText}>{children}</span>
-          <Image
-            src="/icons/right_arrow.svg"
-            alt="right arrow"
-            width={size === "m" ? 20 : 16}
-            height={size === "m" ? 20 : 16}
-            className={styles.rightArrow}
-          />
-        </>
-      );
-    }
-    return children;
-  };
+    return (
+      <button
+        ref={ref}
+        type="button"
+        className={cn(
+          styles.tabs,
+          styles[`position-${position}`],
+          styles[`size-${size}`],
+          styles[`selected-${selected}`],
+          {
+            [styles.disabled]: disabled,
+            [styles.side]: isSidePosition,
+          },
+          className
+        )}
+        onClick={handleClick}
+        disabled={disabled}
+        {...props}>
+        {isSidePosition && (
+          <div className={styles.iconContainer}>
+            <div className={styles.iconFrame} />
+          </div>
+        )}
+        <span className={styles.text}>{children}</span>
+        {isSidePosition && (
+          <div className={styles.arrowContainer}>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className={styles.arrow}>
+              <path
+                d="M7.5 15L12.5 10L7.5 5"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+        )}
+      </button>
+    );
+  }
+);
 
-  return (
-    <button type="button" className={getTabClassName()} onClick={onClick}>
-      {renderSideContent()}
-    </button>
-  );
-};
-
-export default Tabs;
+Tabs.displayName = "Tabs";
