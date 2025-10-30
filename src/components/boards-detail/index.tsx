@@ -210,18 +210,163 @@ const BoardsDetail = () => {
 
       {/* gap - 24px */}
       <div className={styles.gap}></div>
+      <div className={styles.profileDivider}></div>
 
       {/* gap - 40px */}
       <div className={styles.gapLarge}></div>
 
       {/* retrospect-input */}
-      <div className={styles.retrospectInput}></div>
-
+      <div className={styles.retrospectInput}>
+        <div className={styles.retrospectHeader}>
+          <Image
+            src="/icons/chat.svg"
+            alt="댓글"
+            width={24}
+            height={24}
+            className={styles.commentIcon}
+          />
+          <span className={styles.retrospectTitle}>댓글</span>
+        </div>
+        <div className={styles.starRating}>
+          <Image
+            src="/icons/yellowstar.svg"
+            alt="별점"
+            width={24}
+            height={24}
+            className={styles.starIcon}
+          />
+          <Image
+            src="/icons/yellowstar.svg"
+            alt="별점"
+            width={24}
+            height={24}
+            className={styles.starIcon}
+          />
+          <Image
+            src="/icons/yellowstar.svg"
+            alt="별점"
+            width={24}
+            height={24}
+            className={styles.starIcon}
+          />
+          <Image
+            src="/icons/yellowstar.svg"
+            alt="별점"
+            width={24}
+            height={24}
+            className={styles.starIcon}
+          />
+          <Image
+            src="/icons/yellowstar.svg"
+            alt="별점"
+            width={24}
+            height={24}
+            className={styles.starIcon}
+          />
+        </div>
+        <div className={styles.inputArea}>
+          <div className={styles.textareaWrapper}>
+            <textarea
+              className={styles.commentTextarea}
+              placeholder="댓글을 입력해 주세요."
+              maxLength={100}
+            />
+            <div className={styles.charCount}>0/100</div>
+          </div>
+          <Button hiraki="primary" size="m" className={styles.submitButton}>
+            댓글 등록
+          </Button>
+        </div>
+      </div>
       {/* gap - 40px */}
       <div className={styles.gapLarge}></div>
 
       {/* retrospect-list */}
-      <div className={styles.retrospectList}></div>
+      <div className={styles.retrospectList}>
+        <div className={styles.commentItem}>
+          <div className={styles.commentHeader}>
+            <div className={styles.commentProfileSection}>
+              <div className={styles.commentProfile}>
+                <div className={styles.commentProfileImageWrapper}>
+                  <Image
+                    src="/images/profile1.png"
+                    alt="프로필"
+                    width={24}
+                    height={24}
+                    className={styles.commentProfileImage}
+                  />
+                </div>
+                <span className={styles.commentProfileName}>홍길동</span>
+              </div>
+              <div className={styles.commentStarRating}>
+                <Image
+                  src="/icons/yellowstar.svg"
+                  alt="별점"
+                  width={24}
+                  height={24}
+                  className={styles.commentStarIcon}
+                />
+                <Image
+                  src="/icons/yellowstar.svg"
+                  alt="별점"
+                  width={24}
+                  height={24}
+                  className={styles.commentStarIcon}
+                />
+                <Image
+                  src="/icons/yellowstar.svg"
+                  alt="별점"
+                  width={24}
+                  height={24}
+                  className={styles.commentStarIcon}
+                />
+                <Image
+                  src="/icons/yellowstar.svg"
+                  alt="별점"
+                  width={24}
+                  height={24}
+                  className={styles.commentStarIcon}
+                />
+                <Image
+                  src="/icons/yellowstar.svg"
+                  alt="별점"
+                  width={24}
+                  height={24}
+                  className={styles.commentStarIcon}
+                />
+              </div>
+            </div>
+            <div className={styles.commentActions}>
+              <Image
+                src="/icons/edit.svg"
+                alt="수정"
+                width={20}
+                height={20}
+                className={styles.actionIcon}
+              />
+              <Image
+                src="/icons/close.svg"
+                alt="삭제"
+                width={20}
+                height={20}
+                className={styles.actionIcon}
+              />
+            </div>
+          </div>
+          <div className={styles.commentContent}>
+            <p className={styles.commentText}>
+              살겠노라 살겠노라. 청산에 살겠노라.
+              <br />
+              머루랑 다래를 먹고 청산에 살겠노라.
+              <br />
+              얄리얄리 얄랑셩 얄라리 얄라
+            </p>
+          </div>
+          <div className={styles.commentDate}>
+            <span className={styles.dateText}>2024.11.11</span>
+          </div>
+        </div>
+      </div>
 
       {/* gap - 40px */}
       <div className={styles.gapLarge}></div>
