@@ -22,16 +22,20 @@ export interface TooltipProps {
  * 정보를 표시하는 툴팁 컴포넌트입니다.
  * s와 m 두 가지 크기를 제공합니다.
  */
-export const Tooltip: React.FC<TooltipProps> = ({
-  size = "m",
-  children,
-  className,
-}) => {
-  const classNames = [styles.tooltip, styles[`tooltip--${size}`], className]
-    .filter(Boolean)
-    .join(" ");
+export const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
+  ({ size = "m", children, className }, ref) => {
+    const classNames = [styles.tooltip, styles[`tooltip--${size}`], className]
+      .filter(Boolean)
+      .join(" ");
 
-  return <div className={classNames}>{children}</div>;
-};
+    return (
+      <div ref={ref} className={classNames}>
+        {children}
+      </div>
+    );
+  }
+);
+
+Tooltip.displayName = "Tooltip";
 
 export default Tooltip;

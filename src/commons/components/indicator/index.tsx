@@ -20,40 +20,37 @@ export interface IndicatorProps {
  * - size: s, m
  * - 활성화된 점은 불투명, 나머지는 80% 투명도
  */
-export const Indicator: React.FC<IndicatorProps> = ({
-  size,
-  total,
-  current,
-  className,
-}) => {
-  const indicatorClassName = [
-    styles.indicator,
-    styles[`size-${size}`],
-    className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+export const Indicator = React.forwardRef<HTMLDivElement, IndicatorProps>(
+  ({ size, total, current, className }, ref) => {
+    const indicatorClassName = [
+      styles.indicator,
+      styles[`size-${size}`],
+      className,
+    ]
+      .filter(Boolean)
+      .join(" ");
 
-  return (
-    <div className={indicatorClassName}>
-      {Array.from({ length: total }, (_, index) => (
-        <div
-          key={index}
-          className={`${styles.dot} ${
-            index === current ? styles.active : styles.inactive
-          }`}>
-          <Image
-            src={`/icons/indicator-${size}.svg`}
-            alt={`indicator ${index + 1}`}
-            width={size === "s" ? 4 : 8}
-            height={size === "s" ? 4 : 8}
-            className={styles.icon}
-          />
-        </div>
-      ))}
-    </div>
-  );
-};
+    return (
+      <div ref={ref} className={indicatorClassName}>
+        {Array.from({ length: total }, (_, index) => (
+          <div
+            key={index}
+            className={`${styles.dot} ${
+              index === current ? styles.active : styles.inactive
+            }`}>
+            <Image
+              src={`/icons/indicator-${size}.svg`}
+              alt={`indicator ${index + 1}`}
+              width={size === "s" ? 4 : 8}
+              height={size === "s" ? 4 : 8}
+              className={styles.icon}
+            />
+          </div>
+        ))}
+      </div>
+    );
+  }
+);
 
 Indicator.displayName = "Indicator";
 

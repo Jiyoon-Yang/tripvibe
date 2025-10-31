@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,6 +8,8 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import styles from "./styles.module.css";
 import { Button } from "../components/button";
+import { useLinkRouting } from "./hooks/index.link.routing.hook";
+import { useArea } from "./hooks/index.area.hook";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -24,116 +27,132 @@ interface LayoutProps {
  */
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [activeTab, setActiveTab] = useState("트립토크");
+  const { handleLogoClick, handleTripTalkClick, handleLoginClick } =
+    useLinkRouting();
+  const { showNavigation, showBanner } = useArea();
 
   return (
-    <div className={styles.layout}>
+    <div className={styles.layout} data-testid="layout">
       {/* Navigation 영역 */}
-      <nav className={styles.navigation}>
-        <div className={styles.navigationContent}>
-          <div className={styles.leftSection}>
-            {/* Logo */}
-            <div className={styles.logoArea}>
-              <Image
-                src="/images/logo-s.svg"
-                alt="Logo"
-                width={51.52}
-                height={32}
-                priority
-              />
-            </div>
-
-            {/* Navigation Tabs */}
-            <div className={styles.tabContainer}>
-              <button
-                className={`${styles.customTab} ${styles.tripTalk} ${
-                  activeTab === "트립토크" ? styles.active : ""
-                }`}
-                onClick={() => setActiveTab("트립토크")}>
-                트립토크
-                <div className={styles.tabIndicator}></div>
-              </button>
-              <button
-                className={`${styles.customTab} ${styles.accommodation} ${
-                  activeTab === "숙박권 구매" ? styles.active : ""
-                }`}
-                onClick={() => setActiveTab("숙박권 구매")}>
-                숙박권 구매
-                <div className={styles.tabIndicator}></div>
-              </button>
-              <button
-                className={`${styles.customTab} ${styles.myPage} ${
-                  activeTab === "마이 페이지" ? styles.active : ""
-                }`}
-                onClick={() => setActiveTab("마이 페이지")}>
-                마이 페이지
-                <div className={styles.tabIndicator}></div>
-              </button>
-            </div>
-          </div>
-
-          {/* Right Section - Login Button */}
-          <div className={styles.rightSection}>
-            <Button
-              hiraki="quaternary"
-              size="s"
-              position="enabled"
-              rightIcon={
+      {showNavigation && (
+        <nav className={styles.navigation} data-testid="navigation-area">
+          <div className={styles.navigationContent}>
+            <div className={styles.leftSection}>
+              {/* Logo */}
+              <div
+                className={styles.logoArea}
+                onClick={handleLogoClick}
+                data-testid="nav-logo">
                 <Image
-                  src="/icons/right_icon.svg"
-                  alt="login"
-                  width={24}
-                  height={24}
+                  src="/images/logo-s.svg"
+                  alt="Logo"
+                  width={51.52}
+                  height={32}
+                  priority
                 />
-              }
-              className={styles.loginButton}>
-              로그인
-            </Button>
+              </div>
+
+              {/* Navigation Tabs */}
+              <div className={styles.tabContainer}>
+                <button
+                  className={`${styles.customTab} ${styles.tripTalk} ${
+                    activeTab === "트립토크" ? styles.active : ""
+                  }`}
+                  onClick={() => {
+                    setActiveTab("트립토크");
+                    handleTripTalkClick();
+                  }}
+                  data-testid="nav-trip-talk">
+                  트립토크
+                  <div className={styles.tabIndicator}></div>
+                </button>
+                <button
+                  className={`${styles.customTab} ${styles.accommodation} ${
+                    activeTab === "숙박권 구매" ? styles.active : ""
+                  }`}
+                  onClick={() => setActiveTab("숙박권 구매")}>
+                  숙박권 구매
+                  <div className={styles.tabIndicator}></div>
+                </button>
+                <button
+                  className={`${styles.customTab} ${styles.myPage} ${
+                    activeTab === "마이 페이지" ? styles.active : ""
+                  }`}
+                  onClick={() => setActiveTab("마이 페이지")}>
+                  마이 페이지
+                  <div className={styles.tabIndicator}></div>
+                </button>
+              </div>
+            </div>
+
+            {/* Right Section - Login Button */}
+            <div className={styles.rightSection}>
+              <Button
+                hiraki="quaternary"
+                size="s"
+                position="enabled"
+                rightIcon={
+                  <Image
+                    src="/icons/right_icon.svg"
+                    alt="login"
+                    width={24}
+                    height={24}
+                  />
+                }
+                className={styles.loginButton}
+                onClick={handleLoginClick}
+                data-testid="nav-login">
+                로그인
+              </Button>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      )}
 
       {/* Banner 영역 */}
-      <section className={styles.banner}>
-        <Swiper
-          modules={[Autoplay]}
-          spaceBetween={0}
-          slidesPerView={1}
-          autoplay={{
-            delay: 2000,
-            disableOnInteraction: false,
-          }}
-          loop={true}
-          className={styles.bannerSwiper}>
-          <SwiperSlide>
-            <Image
-              src="/images/banner1.png"
-              alt="Banner 1"
-              width={1920}
-              height={516}
-              priority
-              className={styles.bannerImage}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              src="/images/banner2.png"
-              alt="Banner 2"
-              width={1920}
-              height={516}
-              className={styles.bannerImage}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              src="/images/banner3.png"
-              alt="Banner 3"
-              width={1920}
-              height={516}
-              className={styles.bannerImage}
-            />
-          </SwiperSlide>
-        </Swiper>
-      </section>
+      {showBanner && (
+        <section className={styles.banner} data-testid="banner-area">
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={0}
+            slidesPerView={1}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            className={styles.bannerSwiper}>
+            <SwiperSlide>
+              <Image
+                src="/images/banner1.png"
+                alt="Banner 1"
+                width={1920}
+                height={516}
+                priority
+                className={styles.bannerImage}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                src="/images/banner2.png"
+                alt="Banner 2"
+                width={1920}
+                height={516}
+                className={styles.bannerImage}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                src="/images/banner3.png"
+                alt="Banner 3"
+                width={1920}
+                height={516}
+                className={styles.bannerImage}
+              />
+            </SwiperSlide>
+          </Swiper>
+        </section>
+      )}
 
       {/* Gap 영역 */}
       <div className={styles.gap}></div>
