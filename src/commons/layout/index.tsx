@@ -34,7 +34,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* Logo */}
             <div className={styles.logoArea}>
               <Image
-                src="/images/logo-s.png"
+                src="/images/logo-s.svg"
                 alt="Logo"
                 width={51.52}
                 height={32}

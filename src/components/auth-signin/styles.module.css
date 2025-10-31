@@ -1,0 +1,110 @@
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.loginArea {
+  width: 400px;
+  min-width: 400px;
+  height: 100vh;
+  min-height: 100vh;
+  background-color: var(--gray-w);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginContent {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoArea {
+  width: 120px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.logo {
+  object-fit: contain;
+}
+
+.welcomeTitle {
+  font-family: var(--font-family-ko-pretendard-variable);
+  font-weight: var(--font-weight-semi-bold);
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-xs);
+  color: var(--gray-900);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.loginSubtitle {
+  font-family: var(--font-family-ko-pretendard-variable);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-sm);
+  color: var(--gray-800);
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.formArea {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.inputGroup {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.input {
+  width: 100%;
+}
+
+.loginButton {
+  width: 100%;
+  margin-top: 0;
+}
+
+.signupLink {
+  font-family: var(--font-family-ko-pretendard-variable);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-sm);
+  color: var(--gray-800);
+  text-align: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 24px;
+}
+
+.signupLink:hover {
+  opacity: 0.7;
+}
+
+.imageArea {
+  flex: 1;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}

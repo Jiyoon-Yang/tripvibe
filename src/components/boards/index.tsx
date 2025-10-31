@@ -7,6 +7,7 @@ import { Button } from "../../commons/components/button";
 import { DatePicker } from "../../commons/components/datepicker";
 import { Pagination } from "../../commons/components/pagination";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 // 타입 정의
 interface HotPost {
@@ -206,6 +207,7 @@ const Boards = () => {
   // 페이지네이션 상태 관리
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5; // Mock 데이터 기준
+  const router = useRouter();
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -272,6 +274,7 @@ const Boards = () => {
               size="m"
               position="enabled"
               className={styles.tripTalkButton}
+              onClick={() => router.push("/boards/new")}
               leftIcon={
                 <Image
                   src="/icons/write.svg"
