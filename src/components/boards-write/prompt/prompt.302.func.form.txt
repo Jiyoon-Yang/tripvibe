@@ -1,0 +1,98 @@
+아래의 조건을 모두 적용하여, 아래의 요구사항을 모두 구현할 것.
+구현 결과를 체크리스트로 반환할 것.
+
+==============================================
+
+조건-커서룰) 아래의 커서룰을 적용하여 작업하고, 이 작업이 끝나면 해당 rules 적용 결과를 체크리스트로 반환할 것.
+            - @01-common.mdc
+            - @04-func.mdc
+
+==============================================
+
+조건-파일경로) 참고할 TSX  파일경로: src/components/boards-new/index.tsx
+조건-파일경로) 참고할 CSS  파일경로: src/components/boards-new/styles.module.css
+조건-파일경로) 구현될 HOOK 파일경로: src/components/boards-new/hooks/index.form.hook.tsx
+조건-파일경로) 구현될 TEST 파일경로: src/components/boards-new/tests/index.form.hook.spec.ts
+
+==============================================
+
+핵심요구사항) 다음의 기능을 playwright 테스트를 활용하여 TDD기반으로 구현할 것.
+            1) 테스트 제외 라이브러리
+                - jest
+                - @testing-library/react
+
+            2) 테스트 조건
+                - timeout은 설정하지 않거나, 500ms 미만으로 설정할 것.
+                - /boards/new 페이지가 완전히 로드된 후 등록하기버튼을 클릭한 이후 테스트할 것.
+                    - 페이지 로드 식별 요구사항: 고정식별자 data-testid 대기 방법
+                    - 페이지 로드 식별 금지사항: networkidle 대기 방법
+
+            3) 테스트 로컬스토리지 조건
+                3-1) 데이터
+                    - 실제데이터를 사용할 것.
+                    - Mock데이터 사용하지 말 것.
+
+                3-2) 성공시나리오
+                    - 로컬스토리지 모킹하지 말 것.
+
+                3-3) 실패시나리오
+                    - 로컬스토리지 모킹하지 말 것.
+
+핵심요구사항) 다음의 조건에 맞게 일기쓰기 폼 등록 기능을 step-by-step 으로 구현하고, 적용 결과를 체크리스트로 반환할 것.
+            1) 라이브러리조건
+                - 폼: 이미 설치되어있는 react-hook-form, @hookform/resolvers를 사용할 것.
+                - 검증: 이미 설치되어있는 zod를 사용할 것.
+
+            2) 데이터조건
+                - 저장소: GraphQL 주소 https://main-practice.codebootcamp.co.kr/graphql
+                - 메서드:
+                    mutation createBoard($createBoardInput: CreateBoardInput!) {
+                      createBoard(createBoardInput: $createBoardInput) {
+                        _id
+                        writer
+                        title
+                        contents
+                        youtubeUrl
+                        likeCount
+                        dislikeCount
+                        images
+                        boardAddress {
+                          zipcode
+                          address
+                          addressDetail
+                        }
+                        createdAt
+                        updatedAt
+                        deletedAt
+                      }
+                    }
+
+            3) 유저시나리오(등록하기)
+                1. 모든 인풋이 유효하게 입력되면 ‘등록하기’ 버튼을 활성화할 것.
+                2. ‘등록하기’ 클릭 시
+                    2-1) react-hook-form 의 formState.isValid 최종 확인  
+                    2-2) createBoard 뮤테이션 호출  
+                        - variables.createBoardInput 은 4) 변수 매핑 규칙을 준수
+                3. 뮤테이션 성공 시 ‘등록완료’ 모달(<Modal />, variant: 'info', actions: 'single') 노출
+                4. 모달의 ‘확인’ 버튼 클릭 시
+                    - 모든 열린 모달 닫기
+                    - 응답으로 받은 _id 값을 사용하여 /diaries/[id] 경로(commons/constants/url.ts)로 라우팅
+                5. 뮤테이션 실패 또는 5초 초과 타임아웃 발생 시
+                    - variant: 'error' 모달을 노출하고 ‘다시 시도’ 버튼 제공
+                    - ‘다시 시도’ 클릭 시 2-2 단계부터 재시도
+
+            4) 변수 매핑 규칙
+                - writer, title, contents: 필수
+                - youtubeUrl: 미입력 시 빈 문자열
+                - images: 미입력 시 빈 배열([])
+                - boardAddress.*: 비어 있더라도 필드 유지
+
+            5) 플레이라이트 테스트
+                - 성공 시나리오
+                    • 폼 입력 → ‘등록하기’ 클릭 → createBoard 요청 → 등록완료 모달 확인  
+                    • ‘확인’ 클릭 → /diaries/[id] 로 이동 여부 검증(id 는 응답 _id)
+                - 오류 시나리오
+                    • createBoard 응답 500 으로 intercept → 오류 모달 및 ‘다시 시도’ 버튼 검증
+                - 타임아웃 시나리오
+                    • 응답 지연하여 타임아웃 발생 → 오류 모달 동작 검증
+                - 모든 테스트는 data-testid 로 요소 식별, timeout 은 500ms 미만으로 설정
