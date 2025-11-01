@@ -24,7 +24,6 @@ export function AuthSignup() {
                   label="이메일"
                   required
                   placeholder="이메일을 입력해 주세요."
-                  className={styles.input}
                 />
               </div>
               <div className={styles.inputGroup}>
@@ -35,7 +34,6 @@ export function AuthSignup() {
                   label="이름"
                   required
                   placeholder="이름을 입력해 주세요."
-                  className={styles.input}
                 />
               </div>
               <div className={styles.inputGroup}>
@@ -46,7 +44,6 @@ export function AuthSignup() {
                   label="비밀번호"
                   required
                   placeholder="비밀번호를 입력해 주세요."
-                  className={styles.input}
                 />
               </div>
               <div className={styles.inputGroup}>
@@ -57,7 +54,6 @@ export function AuthSignup() {
                   label="비밀번호 확인"
                   required
                   placeholder="비밀번호를 한번 더 입력해 주세요."
-                  className={styles.input}
                 />
               </div>
               <Button

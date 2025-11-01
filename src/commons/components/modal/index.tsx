@@ -5,7 +5,6 @@ import { Button } from "../button";
 import { Dropdown, DropdownOption } from "../dropdown";
 import { useModal } from "../../providers/modal/modal.provider";
 import styles from "./styles.module.css";
-import { cn } from "../../utils/cn";
 
 export interface ModalProps {
   /** 모달의 variant */
@@ -100,11 +99,11 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
     return (
       <div
         ref={ref}
-        className={cn(
+        className={[
           styles.modal,
           styles[`variant-${variant}`],
           styles[`theme-${theme}`]
-        )}>
+        ].join(' ')}>
         {/* Content Area */}
         <div className={styles.content}>
           {/* Title */}

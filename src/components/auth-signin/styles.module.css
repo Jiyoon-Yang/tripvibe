@@ -1,3 +1,4 @@
+/* Container - 전체 레이아웃 */
 .container {
   display: flex;
   width: 100vw;
@@ -5,17 +6,18 @@
   overflow: hidden;
 }
 
+/* Login Area - 좌측 로그인 영역 (400 * 1080) */
 .loginArea {
   width: 400px;
   min-width: 400px;
   height: 100vh;
-  min-height: 100vh;
   background-color: var(--gray-w);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Login Content - 로그인 폼 컨테이너 (320px) */
 .loginContent {
   width: 320px;
   display: flex;
@@ -23,44 +25,47 @@
   align-items: center;
 }
 
+/* Logo Area */
 .logoArea {
   width: 120px;
   height: 80px;
+  margin-bottom: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
 }
 
 .logo {
   object-fit: contain;
 }
 
+/* Welcome Title */
 .welcomeTitle {
   font-family: var(--font-family-ko-pretendard-variable);
-  font-weight: var(--font-weight-semi-bold);
   font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semi-bold);
   line-height: var(--line-height-xs);
   color: var(--gray-900);
   text-align: center;
   margin-bottom: 24px;
 }
 
+/* Login Subtitle */
 .loginSubtitle {
   font-family: var(--font-family-ko-pretendard-variable);
-  font-weight: var(--font-weight-medium);
   font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
   line-height: var(--line-height-sm);
   color: var(--gray-800);
   text-align: center;
   margin-bottom: 36px;
 }
 
+/* Form Area */
 .formArea {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .inputGroup {
@@ -68,38 +73,36 @@
   margin-bottom: 24px;
 }
 
-.input {
-  width: 100%;
-}
-
+/* Login Button */
 .loginButton {
   width: 100%;
-  margin-top: 0;
 }
 
+/* Signup Link */
 .signupLink {
+  margin-top: 24px;
+  padding: 0;
+  background: none;
+  border: none;
   font-family: var(--font-family-ko-pretendard-variable);
-  font-weight: var(--font-weight-regular);
   font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
   line-height: var(--line-height-sm);
   color: var(--gray-800);
   text-align: center;
-  background: none;
-  border: none;
   cursor: pointer;
-  padding: 0;
-  margin-top: 24px;
 }
 
 .signupLink:hover {
   opacity: 0.7;
 }
 
+/* Image Area - 우측 이미지 영역 (1520 * 1080) */
 .imageArea {
   flex: 1;
   height: 100vh;
-  display: flex;
   overflow: hidden;
+  display: flex;
 }
 
 .backgroundImage {

@@ -1,3 +1,4 @@
+/* Container - 전체 레이아웃 */
 .container {
   display: flex;
   width: 100vw;
@@ -5,52 +6,56 @@
   overflow: hidden;
 }
 
+/* Signup Area - 좌측 회원가입 영역 (400 * 1080) */
 .signupArea {
   width: 400px;
   min-width: 400px;
   height: 100vh;
-  min-height: 100vh;
   background-color: var(--gray-w);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Signup Content - 회원가입 폼 컨테이너 (320px) */
 .signupContent {
   width: 320px;
   display: flex;
   flex-direction: column;
 }
 
+/* Signup Title */
 .signupTitle {
   font-family: var(--font-family-ko-pretendard-variable);
-  font-weight: var(--font-weight-semi-bold);
   font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semi-bold);
   line-height: var(--line-height-xs);
   color: var(--gray-b);
   text-align: center;
   margin-bottom: 48px;
 }
 
+/* Form Wrapper */
 .formWrapper {
   width: 100%;
 }
 
+/* Signup Subtitle */
 .signupSubtitle {
   font-family: var(--font-family-ko-pretendard-variable);
-  font-weight: var(--font-weight-medium);
   font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
   line-height: var(--line-height-sm);
   color: var(--gray-800);
   text-align: center;
   margin-bottom: 36px;
 }
 
+/* Form Area */
 .formArea {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .inputGroup {
@@ -58,20 +63,17 @@
   margin-bottom: 24px;
 }
 
-.input {
-  width: 100%;
-}
-
+/* Signup Button */
 .signupButton {
   width: 100%;
-  margin-top: 0;
 }
 
+/* Image Area - 우측 이미지 영역 (1520 * 1080) */
 .imageArea {
   flex: 1;
   height: 100vh;
-  display: flex;
   overflow: hidden;
+  display: flex;
 }
 
 .backgroundImage {

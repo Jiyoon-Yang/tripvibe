@@ -49,7 +49,6 @@ const BoardsWrite: React.FC = () => {
   return (
     <div className={styles.container}>
       {/* {gap}: 1280 * 40 */}
-      <div className={styles.gap40} />
 
       {/* 게시물등록: 1280 * 28 */}
       <div className={styles.headerArea}>
@@ -243,6 +242,7 @@ const BoardsWrite: React.FC = () => {
           등록하기
         </Button>
       </div>
+      <div className={styles.gap40} />
     </div>
   );
 };

@@ -16,7 +16,6 @@
   width: 1280px;
   height: 80px;
   background-color: var(--gray-w);
-  border-bottom: 1px solid var(--gray-200);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -159,6 +158,11 @@
   background-color: var(--gray-w);
   margin: 0 auto;
   flex: 1;
+}
+
+.mainContent.fullWidth {
+  width: 100%;
+  min-height: 100vh;
 }
 
 .contentWrapper {

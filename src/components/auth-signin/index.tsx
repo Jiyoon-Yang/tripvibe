@@ -30,7 +30,6 @@ export function AuthSignin() {
                 size="s"
                 filled="off"
                 placeholder="이메일을 입력해 주세요."
-                className={styles.input}
               />
             </div>
             <div className={styles.inputGroup}>
@@ -39,7 +38,6 @@ export function AuthSignin() {
                 size="s"
                 filled="off"
                 placeholder="비밀번호를 입력해 주세요."
-                className={styles.input}
               />
             </div>
             <Button

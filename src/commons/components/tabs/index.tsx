@@ -2,7 +2,6 @@
 
 import React from "react";
 import styles from "./styles.module.css";
-import { cn } from "../../utils/cn";
 
 export interface TabsProps {
   /**
@@ -61,17 +60,15 @@ export const Tabs = React.forwardRef<HTMLButtonElement, TabsProps>(
       <button
         ref={ref}
         type="button"
-        className={cn(
+        className={[
           styles.tabs,
           styles[`position-${position}`],
           styles[`size-${size}`],
           styles[`selected-${selected}`],
-          {
-            [styles.disabled]: disabled,
-            [styles.side]: isSidePosition,
-          },
+          disabled ? styles.disabled : '',
+          isSidePosition ? styles.side : '',
           className
-        )}
+        ].filter(Boolean).join(' ')}
         onClick={handleClick}
         disabled={disabled}
         {...props}>

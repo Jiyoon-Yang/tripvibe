@@ -155,10 +155,13 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       )}
 
       {/* Gap 영역 */}
-      <div className={styles.gap}></div>
+      {showNavigation && <div className={styles.gap}></div>}
 
       {/* Main Content 영역 */}
-      <main className={styles.mainContent}>
+      <main
+        className={`${styles.mainContent} ${
+          !showNavigation && !showBanner ? styles.fullWidth : ""
+        }`}>
         <div className={styles.contentWrapper}>{children}</div>
       </main>
     </div>
