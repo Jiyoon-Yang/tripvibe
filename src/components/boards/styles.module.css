@@ -199,11 +199,11 @@
 
 .boardLabel h2 {
   margin: 0;
-  font-size: 28px;
-  font-weight: 700;
-  color: #000000;
-  line-height: 36px;
-  font-family: "Pretendard", sans-serif;
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--gray-b);
+  line-height: var(--line-height-xl);
+  font-family: var(--font-family-ko-pretendard);
 }
 
 /* 검색 영역 */
@@ -234,9 +234,34 @@
   width: 640px;
 }
 
-/* 날짜선택기 스타일 */
+/* 날짜선택기 스타일 (antd RangePicker) */
 .datepicker {
   width: 289px;
+  height: 48px;
+}
+
+.datepicker :global(.ant-picker) {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: var(--gray-50);
+  font-family: var(--font-family-ko-pretendard-variable);
+}
+
+.datepicker :global(.ant-picker-input > input) {
+  font-size: var(--font-size-md);
+  color: var(--gray-900);
+  background-color: transparent;
+}
+
+.datepicker :global(.ant-picker-input > input::placeholder) {
+  color: var(--gray-500);
+}
+
+.datepicker :global(.ant-picker-focused) {
+  background-color: var(--gray-w);
+  border: 1px solid var(--gray-b);
 }
 
 /* 검색 버튼 스타일 */
@@ -262,10 +287,10 @@
   display: flex;
   flex-direction: column;
   padding: 24px 48px;
-  background-color: #ffffff;
+  background-color: var(--gray-w);
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 1px solid #f2f2f2;
+  border: 1px solid var(--gray-50);
 }
 
 /* 게시판 목록 */
@@ -355,7 +380,7 @@
   width: 100%;
   height: 44px;
   background-color: transparent;
-  border: 1px solid #f2f2f2;
+  border: 1px solid var(--gray-50);
   border-radius: 8px;
   margin-bottom: 12px;
   display: flex;
@@ -366,7 +391,7 @@
 }
 
 .boardRow:hover {
-  background-color: #f8f9fa;
+  background-color: var(--gray-50);
 }
 
 /* 게시글 번호 */

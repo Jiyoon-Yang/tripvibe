@@ -102,8 +102,8 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
         className={[
           styles.modal,
           styles[`variant-${variant}`],
-          styles[`theme-${theme}`]
-        ].join(' ')}>
+          styles[`theme-${theme}`],
+        ].join(" ")}>
         {/* Content Area */}
         <div className={styles.content}>
           {/* Title */}

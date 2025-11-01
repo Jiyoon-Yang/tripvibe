@@ -8,11 +8,11 @@
 
 ==============================================
 
-조건-파일경로) 구현될 TSX 파일경로: src/commons/providers/react-query/react-query.provider.tsx
+조건-파일경로) 구현될 TSX 파일경로: src/commons/providers/apollo-client/apollo-client.provider.tsx
 
 ==============================================
 
 핵심요구사항) 완성된 컴포넌트를 layout에서 import하여 연결시킬 것. (children을 감싸도록 만들 것)
             - 연결될 경로: src/app/layout.tsx
 
-핵심요구사항) @tanstack/react-query를 사용하여 기본적인 client-cache 셋팅을 구현할 것.
+핵심요구사항) @apollo/client를 사용하여 기본적인 GraphQL client 및 cache 셋팅을 구현할 것.

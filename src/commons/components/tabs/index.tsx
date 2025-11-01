@@ -65,10 +65,12 @@ export const Tabs = React.forwardRef<HTMLButtonElement, TabsProps>(
           styles[`position-${position}`],
           styles[`size-${size}`],
           styles[`selected-${selected}`],
-          disabled ? styles.disabled : '',
-          isSidePosition ? styles.side : '',
-          className
-        ].filter(Boolean).join(' ')}
+          disabled ? styles.disabled : "",
+          isSidePosition ? styles.side : "",
+          className,
+        ]
+          .filter(Boolean)
+          .join(" ")}
         onClick={handleClick}
         disabled={disabled}
         {...props}>

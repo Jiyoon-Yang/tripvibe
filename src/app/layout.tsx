@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ModalProvider } from "@/commons/providers/modal/modal.provider";
 import { NextThemesProvider } from "@/commons/providers/next-themes/next-themes.provider";
-import { ReactQueryProvider } from "@/commons/providers/react-query/react-query.provider";
+import { ApolloClientProvider } from "@/commons/providers/apollo-client/apollo-client.provider";
 import { Layout } from "@/commons/layout";
 
 export const metadata: Metadata = {
@@ -18,16 +18,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ReactQueryProvider>
-          <NextThemesProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem>
+        <NextThemesProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem>
+          <ApolloClientProvider>
             <ModalProvider>
               <Layout>{children}</Layout>
             </ModalProvider>
-          </NextThemesProvider>
-        </ReactQueryProvider>
+          </ApolloClientProvider>
+        </NextThemesProvider>
       </body>
     </html>
   );

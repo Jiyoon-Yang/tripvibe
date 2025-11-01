@@ -4,10 +4,13 @@ import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { Searchbar } from "../../commons/components/searchbar";
 import { Button } from "../../commons/components/button";
-import { DatePicker } from "../../commons/components/datepicker";
+import { DatePicker } from "antd";
+import "antd/dist/reset.css";
 import { Pagination } from "../../commons/components/pagination";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+
+const { RangePicker } = DatePicker;
 
 // 타입 정의
 interface HotPost {
@@ -249,16 +252,16 @@ const Boards = () => {
         {/* search: 1280 * 48 */}
         <div className={styles.search}>
           <div className={styles.searchLeft}>
+            <RangePicker
+              placeholder={["YYYY.MM.DD", "YYYY.MM.DD"]}
+              format="YYYY.MM.DD"
+              className={styles.datepicker}
+            />
             <Searchbar
               state="default"
               size="m"
               placeholder="제목을 검색해 주세요."
               className={styles.searchbar}
-            />
-            <DatePicker
-              size="m"
-              placeholder="YYYY.MM.DD - YYYY.MM.DD"
-              className={styles.datepicker}
             />
             <Button
               hiraki="secondary"
